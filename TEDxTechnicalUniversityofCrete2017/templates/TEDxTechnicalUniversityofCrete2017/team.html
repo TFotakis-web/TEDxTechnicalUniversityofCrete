@@ -1,0 +1,467 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>TEDx TechnicalUniversityofCrete</title>
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/animate.min.css' %}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/font-awesome.min.css' %}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/lightbox.css' %}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/main.css' %}" rel="stylesheet">
+	<link id="css-preset" href="{% static 'TEDxTechnicalUniversityofCrete2017/css/presets/preset1.css' %}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/responsive.css' %}" rel="stylesheet">
+
+	<!--[if lt IE 9]>
+    <script src="{% static 'TEDxTechnicalUniversityofCrete2017/js/html5shiv.js'%}"></script>
+    <script src="{% static 'TEDxTechnicalUniversityofCrete2017/js/respond.min.js'%}"></script>
+  <![endif]-->
+	<link rel="icon" href="{% static 'TEDxTechnicalUniversityofCrete2017/favicon.png' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'TEDxTechnicalUniversityofCrete2017/favicon.png' %}" type="image/x-icon"/>
+
+</head><!--/head-->
+
+<body>
+
+<!--.preloader-->
+<div class="preloader"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+<!--/.preloader-->
+
+<header id="home">
+	<div class="main-nav">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle ted-secondary" data-toggle="collapse" data-target=".navbar-collapse">
+					<i class="fa fa-reorder fa-lg"></i>
+				</button>
+				<a class="navbar-brand" href="../">
+					<h1><img class="img-responsive" width="250" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/tedx_logo_small.png' %}" alt="logo"></h1>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="../">Home</a></li>
+					<li><a href="../#about-us">About</a></li>
+					<li id="event-but" class="dropdown active">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							Event
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li id="light-but"><a href="../#services">LightLeak</a></li>
+							<li id="port-but"><a href="../#portfolio">Speakers</a></li>
+							<li id="sched-but"><a href="../#schedule">Schedule</a></li>
+							<li id="team-but" class="active"><a href="#team">Team</a></li>
+						</ul>
+					</li>
+					<li id="part-but"><a href="../partners.html">Partners</a></li>
+					<li id="cont-but"><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div><!--/#main-nav-->
+</header><!--/#home-->
+<section id="partners" class="parallax">
+	<div class="container">
+		<div class="row">
+			<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<h1><strong>TEAM</strong></h1>
+			</div>
+		</div>
+	</div>
+
+</section><!--/#portfolio-->
+<section class="main-section team" id="team"><!--main-section team-start-->
+	<div class="container">
+		<div class="team-leader-block clearfix">
+			<div class="team-leader-box wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="team-leader">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/kimonaskailoglou.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Kailoglou Kimon</h3>
+				<span>Curator</span>
+				<p>Communicator, Music Lover, Adventure hunter</p>
+			</div>
+			<div class="team-leader-box wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="team-leader">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/valsamopoulos.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Athanasios Valsamopoulos</h3>
+				<span>Co-organizer, Sponsors Team</span>
+				<p>Full of Energy, Team Player, Nature Lover, Adventure Seeker</p>
+
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-09s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/georgadopoulos.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Georgantopoulos Kostis</h3>
+				<span>Speakers Team</span>
+				<p>Creative, broad - minded, quick learner, enthusiastic, in love with the sea</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/goudoumas.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="https://www.facebook.com/fgkountoumas" target="blank" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Gkountoumas Filippos</h3>
+				<span>Developers Team</span>
+				<p>Knowledgeable,inventive,candid with an unconventional way of life</p>
+
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/anastasia.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Grigoriadou Anastasia</h3>
+				<span>Speakers team </span>
+				<p>Love dancing and drawing</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/iliaschiftsian.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="https://www.facebook.com/ilias.chiefjian" target="blank" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Ilias Chiefjian</h3>
+				<span>Sponsors Team </span>
+				<p>Adventurous,Competitive,Sportsmanslike</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/fotini.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Kandilorou Fotini</h3>
+				<span>Sponsors Team</span>
+				<p>I’m a very sociable person, who likes working in a team. I believe i am creative and i always provide new ideas and solutions.</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/kapatsori.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="https://www.facebook.com/mariatina.kap" target="blank" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Kapatsori Maria Tina</h3>
+				<span>Social Media Team</span>
+				<p>Love for architecture, sociable, cooperative</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/koutsikou.JPG' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Koutsikou Vasiliki</h3>
+				<span>Venue Team</span>
+				<p>I’ m passionate about art and dancing.I am sociable and a big dreamer.</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/leondidis.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Leontidis Leonidas</h3>
+				<span>Co-organizer - Social Media - Communications, Editorial and Marketing Director</span>
+				<p>Curious, Imaginative, Cooperative, Diligent</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/manousos.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Christos Manousos</h3>
+				<span>Sponsors Team</span>
+				<p>Skewering everything with his flippant shenanigans.</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/asproudi.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Μarialena Asproudi</h3>
+				<span>Speakers team</span>
+				<p>Adventure enthusiast</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/tasospolygenis.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Polygenis Anastasios</h3>
+				<span>Speakers team</span>
+				<p>Social , Desicive , Cooperative</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/arxodiachiftsian.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Tsiftsian Archontia</h3>
+				<span>Social Media Manage</span>
+				<p>Sociable, Team player, Excited for new adventures and trips</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/cossio.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Cossio Claudio</h3>
+				<span>Speakers Team</span>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/chronopoulosthodoris.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="https://www.facebook.com/theo.chronopoulos" target="blank" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Τhodoris Chronopoulos</h3>
+				<span>Director of Sponsors Team</span>
+				<p>Light Seeker</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/georgina.JPG' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Malevri Georgina</h3>
+				<span>Venue Team</span>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/apostolou.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Apostolou Marina</h3>
+				<span>Design Team</span>
+				<p>Playing music takes me to my happy-place.</p>
+
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/beldekou.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Beldekou Andriana</h3>
+				<span>Speakers Team</span>
+				<p> Getting the most out of life. Nature lover, passionate about etxreme sports and adventures.</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/panos.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Panos Chronopoulos</h3>
+				<span>Co-organizer, Sponsors Team</span>
+				<p>Hyperactive, team oriented, efficient, problem solver</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/kousis.jpg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Dimitrios Kousis</h3>
+				<span>Visual Communication Designer</span>
+				<p>Designer of my own catastrophe, with a mess of unfinished thoughts.</p>
+			</div>
+			<div class="team-leader-box">
+				<div class="team-leader wow fadeInDown delay-03s">
+					<div class="team-leader-shadow"><a href="#"></a></div>
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/team/heal.jpeg' %}" width="290px" height="300px" alt="">
+					<ul>
+						<li><a href="#" class="fa-twitter"></a></li>
+						<li><a href="#" class="fa-facebook"></a></li>
+						<li><a href="#" class="fa-pinterest"></a></li>
+						<li><a href="#" class="fa-google-plus"></a></li>
+					</ul>
+				</div>
+				<h3>Manos Helidonis </h3>
+				<span>Design Team</span>
+				<p>Love Life Like Crazy</p>
+			</div>
+		</div>
+	</div>
+</section><!--main-section team-end-->
+
+<div id="google-map" class="wow fadeIn" data-latitude="35.529893" data-longitude="24.068491" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgq0SJpwxj3c2eYaAdWClDgNgqV7mDWH0" async defer></script>
+<footer id="contact" class="ted-bottom-bg team-pg">
+	<div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="footer-logo">
+						<a href="../"><img class="img-responsive" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/tedx_logo.png' %}" width="300px" alt="tedxlogo"></a>
+					</div>
+					<div class="social-icons">
+						<ul>
+							<li><a href="mailto:tedxtechnicaluniversityofcrete@gmail.com" class="envelope"><i class="fa fa-envelope"></i></a></li>
+							<li><a class="facebook" href="https://www.facebook.com/TedxTechnicalUniversityOfCrete/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+							<!--<li><a class="twitter" ><i class="fa fa-twitter"></i></a></li>
+							<li><a class="dribbble" ><i class="fa fa-dribbble"></i></a></li>
+							<li><a class="linkedin" ><i class="fa fa-linkedin"></i></a></li>
+							<li><a class="tumblr" ><i class="fa fa-tumblr-square"></i></a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<iframe id="fb" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTedxTechnicalUniversityOfCrete&tabs=timeline&width=500&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7">
+					<p>©2017 TED<sup>x</sup>TechnicalUniversityofCrete. All rights reserved.<br/>
+						Disclaimer: This independently organized TEDx event is operated under license from TED.</p>
+				</div>
+				<div class="col-sm-5">
+					<p class="pull-right">Designed by TEDx Enthusiasts</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/wow.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/mousescroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/smoothscroll.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/jquery.countTo.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/lightbox.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/main.js' %}"></script>
+
+</body>
+</html>

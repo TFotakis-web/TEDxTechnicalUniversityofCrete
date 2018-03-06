@@ -1,0 +1,1109 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>TEDx TechnicalUniversityofCrete</title>
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/animate.min.css'%}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/font-awesome.min.css'%}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/lightbox.css'%}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/main.css'%}" rel="stylesheet">
+	<link id="css-preset" href="{% static 'TEDxTechnicalUniversityofCrete2017/css/presets/preset1.css'%}" rel="stylesheet">
+	<link href="{% static 'TEDxTechnicalUniversityofCrete2017/css/responsive.css'%}" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="{% static 'TEDxTechnicalUniversityofCrete2017/css/sched.css'%}">
+	<!--[if lt IE 9]>
+    <script src="{% static 'TEDxTechnicalUniversityofCrete2017/js/html5shiv.js'%}"></script>
+    <script src="{% static 'TEDxTechnicalUniversityofCrete2017/js/respond.min.js'%}"></script>
+  <![endif]-->
+	<link rel="icon" href="{% static 'TEDxTechnicalUniversityofCrete2017/favicon.png'%}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static 'TEDxTechnicalUniversityofCrete2017/favicon.png'%}" type="image/x-icon"/>
+
+</head><!--/head-->
+
+<body>
+<!--.preloader-->
+<div class="preloader"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+<!--/.preloader-->
+
+<header id="home">
+	<div id="homevideo">
+		<video id="mainvideo" autoplay muted controls loop>
+			<source src="{% static 'TEDxTechnicalUniversityofCrete2017/video/main.mp4'%}" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+
+		<div class="caption">
+			<h1 class="animated fadeInLeftBig">Welcome to</h1>
+			<img id="tedx-image" class="animated fadeInRightBig" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/tedx_logo.png'%}" alt="Tedx Logo"/><br/>
+			<a id="tohash" href="#about-us"><i class="fa fa-angle-down"></i></a>
+		</div>
+
+	</div>
+
+	<div class="main-nav">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle ted-secondary" data-toggle="collapse" data-target=".navbar-collapse">
+					<i class="fa fa-reorder fa-lg"></i>
+				</button>
+				<a class="navbar-brand" href="index.html">
+					<h1><img class="img-responsive" width="250" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/tedx_logo_small.png'%}" alt="logo"></h1>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li id="home-but" class="active"><a href="#home">Home</a></li>
+					<li id="about-but"><a href="#about-us">About</a></li>
+					<!--<li id="event-but"><a href="#services">Event</a></li>-->
+					<li id="event-but" class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+							Event
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li id="light-but"><a href="#services">LightLeak</a></li>
+							<li id="port-but"><a href="#portfolio">Speakers</a></li>
+							<li id="sched-but"><a href="#schedule">Schedule</a></li>
+							<li id="team-but"><a href="#teams">Team</a></li>
+						</ul>
+					</li>
+					<li><a href="partners.html">Partners</a></li>
+					<li id="cont-but"><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div><!--/#main-nav-->
+</header><!--/#home-->
+<section id="about-us" class="parallax">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="about-info text-justify wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<h2 class="text-center">About <strong class="ted-primary">TED</strong></h2>
+					<p>TED is a nonprofit organization devoted to Ideas Worth Spreading. Started as a four-day conference in California 30 years ago, TED has grown
+						to support its mission with multiple initiatives. The two annual TED Conferences invite the world's leading thinkers and doers to speak for 18 minutes or less.
+						Many of these talks are then made available, free, at TED.com. TED speakers have included Bill Gates, Jane Goodall, Elizabeth Gilbert, Sir Richard Branson,
+						Nandan Nilekani, Philippe Starck, Ngozi Okonjo-Iweala, Sal Khan and Daniel Kahneman.
+						The annual TED Conference takes place each spring in Vancouver, British Columbia. TED's media initiatives include TED.com, where new TED Talks are posted daily;
+						the Open Translation Project, which provides subtitles and interactive transcripts as well as translations from volunteers worldwide; the educational initiative
+						TED-Ed. TED has established the annual TED Prize, where exceptional individuals with a wish to change the world get help translating their wishes into action; TEDx,
+						which supports individuals or groups in hosting local, self- organized TED-style events around the world, and the TED Fellows program, helping world-changing innovators
+						from around the globe to amplify the impact of their remarkable projects and activities.</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="about-info text-justify wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<h2 class="text-center">About <strong class="ted-primary">TED<sup>x</sup></strong></h2>
+					<p>In the spirit of ideas worth spreading, TED has created a program called <a class="ted-primary" href="https://www.ted.com/about/programs-initiatives/tedx-program" target="_blank">TEDx</a>.
+						TEDx is a program of local, self-organized events that bring people together to share a TED-like experience.
+						Our event is called TEDxTechnicalUniversityofCrete, where x = independently organized TED event. At our TEDxTechnicalUniversityofCrete event, TEDTalks video and live speakers
+						will combine to spark deep discussion and connection in a small group. The TED Conference provides general guidance for the TEDx program,
+						but individual TEDx events, including ours, are self-organized.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section><!--/#about-us-->
+<section id="services">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<div class="row">
+					<div class="text-center col-sm-8 col-sm-offset-2">
+						<h1 style="color:#fff"><strong>Event</strong></h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 text-center wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/TEDx_logo_w.jpg'%}" alt="tedx logo" width="400px"/>
+				</div>
+				<div class="col-sm-6 text-justify wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<h2 style="color:#fff" class="text-center"><span class="ted-primary">Light</span>Leak</h2>
+					<p>It’s been said: "You have no idea what's coming next". Naturally, this is periodically going through my mind and gave me food for thought. Every day I have to fight with myself, with who I am, what my dreams are, what I am supposed to do when I grow up, how can I find the best choices for me. I need hope to keep me moving. I need light to brighten my days. Figuratively, I open my windows, I pull back my curtains, I open my mind. </p>
+					<p>There is no better way to describe human beings than a quote of Marianne Williamson by the name Our Deepest Fear that goes like this “Our deepest fear is not that we are inadequate. Our deepest fear is that we are powerful beyond measure. It is our light, not our darkness that most frightens us. We ask ourselves, who am I to be brilliant, gorgeous, talented, fabulous? Actually, who are you not to be? Your playing small does not serve the world. There is nothing enlightened about shrinking so that other people won't feel insecure around you. We are all meant to shine, as children do. It's not just in some of us; it's in everyone. And as we let our own light shine, we unconsciously give other people permission to do the same. As we are liberated from our own fear, our presence automatically liberates others.”</p>
+					<p>We all need inspiration in our lives; someone to let us know that we have the power to do whatever we wish to do. The only thing stopping us from doing it, is ourselves. Our fears and insecurities.</p>
+					<p>Light is knowledge and we need more of it. So just let the light in.</p>
+				</div>
+			</div>
+		</div>
+		<br/><br/><br/><br/>
+		<div id="whenwhere" class="row wow fadeInDown ted-secondary-bg" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class=" col-sm-4 text-center">
+				<h1 class="whenwherep"><strong>WHEN</strong></h1>
+				<h2 class="whenwherep">May 6th, 2017</h2>
+			</div>
+			<div class="col-sm-4 text-center">
+				<a style="color:#fff; text-decoration:none;" href="#">
+					<button class="btn btn-lg btn-opac">SOLD OUT</button>
+				</a>
+			</div>
+			<div class="col-sm-4 text-center">
+				<h1 class="whenwherep"><strong>WHERE</strong></h1>
+				<h2 class="whenwherep">Technical University of Crete</h2>
+				<h2 class="whenwherep">Science Building</h2>
+				<h2 class="whenwherep">1st Floor</h2>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="portfolio" class="parallax">
+	<div class="container">
+		<div class="row">
+			<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+				<h1><strong>Speakers</strong></h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+				<div class="folio-image">
+					<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/ioanna.jpg'%}" alt="">
+				</div>
+				<div class="overlay">
+					<div class="overlay-content">
+						<div class="overlay-text">
+							<div class="folio-info">
+								<h3>Ioanna Fotopoulou</h3>
+								<p>Hostess</p>
+							</div>
+							<div class="folio-overview">
+								<span class="folio-link"><a href="http://www.kathimerini.gr/842258/article/proswpa/synentey3eis/iwanna-fwtopoyloy-einai-spoydaio-na-dhmioyrgeitai-estw-kai--mia-8esh-ergasias--sthn-ellada-shmera" target="_blank"><i class="fa fa-link"></i></a></span>
+								<span class="folio-expand"><a data-toggle="modal" data-target="#myModal12"><i class="fa fa-search-plus"></i></a></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Gketsis.jpeg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Angelos Getsis</h3>
+									<p>Innovator</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://www.vice.com/en_uk/article/angelos-getsis-smartglasses-for-the-blind-876" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal3"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="300ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Tsapatakis.JPG'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Antonis Tsapatakis</h3>
+									<p>Paralympic Champion</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://www.facebook.com/AntonisTsapatakis/" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal1"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/kontopidis.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Dimitrios Kontopidis</h3>
+									<p>Founder & General Director: Humane</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="http://humane.gr/" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal7"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="700ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Edouard jacqmin.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Edouard Jacqmin</h3>
+									<p>Traveler and Musician</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a class="folio-read-more" href="#" data-single_url="portfolio-single.html"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal5"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="800ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Adamakis.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Yiannis Adamakis</h3>
+									<p>Painter</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://www.facebook.com/YiannisAdamakisPainter/" target="blank" data-single_url="portfolio-single.html"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal6"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Kounelas.JPG'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Hlias Kounelas</h3>
+									<p>Actor</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="http://www.avgi.gr/article/10971/5182144/elias-kounelas-echei-pethanei-to-theatro-protagoniston" target="blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal9"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInLeftBig" data-wow-duration="1000ms" data-wow-delay="400ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Laertis2.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Laertis-Antonios Ando Vassiliou</h3>
+									<p>Architect</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://architizer.com/users/laertis-antonios-ando-vassiliou/" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal2"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/kritsali.png'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Natalia Kritsali</h3>
+									<p>Innovation Designer</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="http://bloode.org/" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal8"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="700ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/smurnakis.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Nicolas Smyrnakis </h3>
+									<p>Writer</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="http://www.islandofman.me/" target="_blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal4"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Sharon.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Sharon Jackson</h3>
+									<p>Founder and CEO of European Sustainability Academy</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href=""><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal10"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/dimopoulos.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Dimitris Dimopoulos</h3>
+									<p>Comedian</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://www.facebook.com/djimdjim/" target="blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal11"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6">
+				<div class="folio-item wow fadeInRightBig" data-wow-duration="1000ms" data-wow-delay="500ms">
+					<div class="folio-image">
+						<img src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/theodore.jpg'%}" alt="">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content">
+							<div class="overlay-text">
+								<div class="folio-info">
+									<h3>Theodore</h3>
+									<p>Live Performance</p>
+								</div>
+								<div class="folio-overview">
+									<span class="folio-link"><a href="https://www.theodore-music.com" target="blank"><i class="fa fa-link"></i></a></span>
+									<span class="folio-expand"><a data-toggle="modal" data-target="#myModal13"><i class="fa fa-search-plus"></i></a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="portfolio-single-wrap">
+		<div id="portfolio-single">
+		</div>
+	</div><!-- /#portfolio-single-wrap -->
+</section><!--/#portfolio-->
+<section id="schedule">
+	<div class="container"> <!-- Schedule -->
+		<div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="row">
+				<div class="text-center col-sm-8 col-sm-offset-2">
+					<h1><strong>Schedule</strong></h1>
+				</div>
+			</div>
+		</div>
+		<!--<div class="print-schedule">
+		</div>-->
+		<div class="wrapper">
+			<div class="table">
+
+				<div class="seira header">
+					<div class="cell">
+						Time
+					</div>
+					<div class="cell">
+						Reception and Registration
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						10:00
+					</div>
+					<div class="cell">
+						Breakfast
+					</div>
+				</div>
+				<div class="seira header">
+					<div class="cell">
+						Time
+					</div>
+					<div class="cell">
+						Initiation
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						11:30
+					</div>
+					<div class="cell">
+						Edouard Jacqmin
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						11:50
+					</div>
+					<div class="cell">
+						Getsis Angelos
+					</div>
+
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						12:10
+					</div>
+					<div class="cell">
+						Kritsali Natalia
+					</div>
+
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						12:30
+					</div>
+					<div class="cell">
+						Performance Sonarte
+					</div>
+				</div>
+				<div class="seira">
+					<div class="cell">
+						12:40
+					</div>
+					<div class="cell">
+						Coffee Break
+					</div>
+				</div>
+
+				<div class="seira header">
+					<div class="cell">
+						Time
+					</div>
+					<div class="cell">
+						Possession
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						14:00
+					</div>
+					<div class="cell">
+						Vassiliou Laertis
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						14:20
+					</div>
+					<div class="cell">
+						Smyrnakis Nicolas
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						14:40
+					</div>
+					<div class="cell">
+						Dimopoulos Dimitris
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						15:00
+					</div>
+					<div class="cell">
+						Tsapatakis Antonis
+					</div>
+				</div>
+				<div class="seira">
+					<div class="cell">
+						15:30
+					</div>
+					<div class="cell">
+						Lunch Break
+					</div>
+				</div>
+
+
+				<div class="seira header">
+					<div class="cell">
+						Time
+					</div>
+					<div class="cell">
+						Expiation
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						17:00
+					</div>
+					<div class="cell">
+						Adamakis Yiannis
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						17:20
+					</div>
+					<div class="cell">
+						Kounelas Hlias
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						17:40
+					</div>
+					<div class="cell">
+						Kontopidis Dimitris
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						18:00
+					</div>
+					<div class="cell">
+						Sharon Lawlor-Jackson
+					</div>
+				</div>
+				<div class="seira header">
+					<div class="cell">
+						Time
+					</div>
+					<div class="cell">
+						Final Stage
+					</div>
+				</div>
+
+				<div class="seira">
+					<div class="cell">
+						19:30
+					</div>
+					<div class="cell">
+						Live Performance by Theodore
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
+
+<section id="teams" class="parallax">
+	<div class="container">
+		<div class="row">
+			<div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+				<h2>The Team</h2>
+			</div>
+		</div>
+		<div class="row text-center wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="col-sm-6 text-justify">
+				Behind of every event, is concealing an incredibly organized team. Everybody in his own way, made his best, trying to make the event happen, as they imagined it and as you would like to. So, if you would like to meet them, it is high time to!
+			</div>
+			<div class="col-sm-6">
+				<a style="color:#fff; text-decoration:none;" href="team.html">
+					<button class="btn btn-lg btn-opac">Meet the Team!</button>
+				</a></div>
+		</div>
+	</div>
+</section><!--/#team-->
+
+<div id="google-map" class="wow fadeIn" data-latitude="35.529893" data-longitude="24.068491" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgq0SJpwxj3c2eYaAdWClDgNgqV7mDWH0" async defer></script>
+<footer id="contact" class="ted-bottom-bg">
+	<div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="footer-logo">
+						<a href="index.html"><img class="img-responsive" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/tedx_logo.png'%}" width="300px" alt="tedxlogo"></a>
+					</div>
+					<div class="social-icons">
+						<ul>
+							<li><a href="mailto:tedxtechnicaluniversityofcrete@gmail.com" class="envelope"><i class="fa fa-envelope"></i></a></li>
+							<li><a class="facebook" href="https://www.facebook.com/TedxTechnicalUniversityOfCrete/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+							<!--<li><a class="twitter" ><i class="fa fa-twitter"></i></a></li>
+							<li><a class="dribbble" ><i class="fa fa-dribbble"></i></a></li>
+							<li><a class="linkedin" ><i class="fa fa-linkedin"></i></a></li>
+							<li><a class="tumblr" ><i class="fa fa-tumblr-square"></i></a></li>-->
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<iframe id="fb" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTedxTechnicalUniversityOfCrete&tabs=timeline&width=500&height=200&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7">
+					<p>©2017 TED<sup>x</sup>TechnicalUniversityofCrete. All rights reserved.<br/>
+						Disclaimer: This independently organized TEDx event is operated under license from TED.</p>
+				</div>
+				<div class="col-sm-5">
+					<p class="pull-right">Designed by TEDx Enthusiasts</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- Modal -->
+<div id="myModal1" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Tsapatakis.JPG'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Antonis Tsapatakis</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Antonis Tsapatakis, 29 years old, born in Chania, Crete, Greece. A successful Paralympic champion, who, despite the fact that a motorcycle accident left him paralyzed in December 2006, never stopped chasing his dreams.</p>
+							<p>In 2008 he started swimming again, being a water polo player and swimmer from the age of five.</p>
+							<p>In 2009 he got his first silver medal in the 100m breaststroke in the Εuropean Swimming Championship, experiencing this way an upturn in the sport of swimming.</p>
+							<p>In 2012 he was crowned the fourth Paralympic champion in London Paralympics in the 100m breaststroke.</p>
+							<p>In 2013 he won two bronze medals at the world championship held in Canada in the 100m breaststroke and in the 200m individual medley.</p>
+							<p>In 2015 he won the silver medal in the 100m breaststroke at the World Championship held in Glasgow where he set a new National and European personal record in this swimming style.</p>
+							<p>In 2016 he participated in Rio 2016 Paralympics, where he was placed in the forth position.</p>
+							<p>Now he has started the preparation for the next Paralympics, which will be held in Tokyo in 2020. His goal is the gold medal in the Paralympics.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="myModal2" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Laertis2.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Laertis-Antonios Ando Vassiliou</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Laertis-Antonios Ando Vassiliou (1983), is a Greek-Japanese origin architect who lives and works in Haarlem, Netherlands. In 2008 he completed his studies in Architecture at the National Technical University of Athens, having already important distinctions and two projects in Rhodes, the place of his origin. In 2010, he began postgraduate studies at TU Delft, Holland, as a scholar of SSF.</p>
+							<p>Since then he worked on internationally recognized architectural practices of the Netherlands (Mecanoo, UNStudio) and as a freelancer, winning honors and awards in competitions. In 2014, he established a design platform named OPA Open Platform for Architecture where he published the popular and awarded project Casa Brutale (2015), part of the Terra Mater architectural trilogy Terra Mater which will start getting built in Lebanon in 2017.</p>
+							<p>In October 2016 parallel to OPA he founded his personal Architectural practice (LAAVArchitects), which now has an international portfolio of projects in more than 6 countries.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal11" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/dimopoulos.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Dimitris Dimopoulos</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Dimitris Dimopoulos started out in comedy as a stand-up comedian in 1996 as part of the comedy group "Comedy Nights". As an actor and singer he has collaborated with the Greek National Opera, the music theatre company "The Beggars' Operas" as well as commercial theatre and dubbing companies.</p>
+							<p>He has written the librettos for the operas "AirRossini" and "Yasou Aida!" for which he was awarded the 2012 "Karolos Koun" Honourable Mention for Greek Play by the Association of Greek Theatre and Music Critics.</p>
+							<p>He has directed the music theatre pieces "Kafka Fragmente, "Das Schubert Diploma" and "Evening Songs", the operetta "Satanerie" as well as the theatre pieces "The Minions of Midas" and "Tsaika!".</p>
+							<p>As a translator he has worked in subtitling, dubbing, theatre and opera. He speaks greek, german, english, spanish and russian, and holds a degree in Acting (Iasmos Dracma School) and a degree in Tourism (Technical Education Institution of Athens).</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal12" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/ioanna.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Ioanna Fotopoulou</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Ioanna is an engineer, social entrepreneur and public speaker since 2008. For her social initiatives against corruption in Greece ( in the tax evasion system as well as the local level governments) she has been recognised by many international organisations like One Young World, Clinton Global Initiative (CGIU) and Social Impact Awards among others.</p>
+							<p>She has been the president of Rotaract Anatolia, president of the student engineer department and currently is the incoming curator of Global Shapers Athens Hub of the World Economic Forum. Worked as a political activist for almost 2 years in Serbia and Bosnia & Herzegovina, have worked in the European Parliament, the ministry of Education in Greece and currently runs her 3rd company.Simple, Rocks that focuses on helping people have sustainable businesses and find the right clients in the minimum cost. She truly believes that employment (as well as self employment) is the most empowering gift she can give to today's youth!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal13" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/theodore.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Theodore</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Theodore is a dynamic multi-instrumentalist, composer and performer.</p>
+							<p> He fuses classical composition with electronic elements to create beautifully atmospheric and often cinematic songs. His unique mélange of influences, from Pink Floyd and Radiohead to a schooling in piano and traditional Greek folk music, has already taken him from Church Studios to supporting Sigur Ros at Release Athens Festival in 2016.</p>
+							<p> Ηis debut album It Is But It’s Not has Theodore playing piano, guitar, synthesizer and glockenspiel, while his bandmates add rock instrumentation alongside an elegant string section. Written and arranged by Theodore the album was co-produced by Clive Martin (Queen, Reef) and mixed by Ken Thomas (Sigur Rós, Moby, M83) in London, and then performed live at the fabled Studio 2 at Abbey Road Studios. Out on United We Fly in 2016, It is but it’s not was met with great acclaim throughout Europe.</p>
+							<p>Future plans include the release of his next album and live performances in Germany, France, UK, Poland and Sweden.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<div id="myModal3" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Gketsis.jpeg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Angelos Gketsis</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Angelos Getsis was born 1997 in Arta, Greece. Son of merchant Loretta Retsa and journalist Kwstas Gketsis. Since he was young he showed a tremendous interest in technology, to the point that he was taking apart anything electronic in his house to discover what was "hiding" inside it. He finished elementary and high school in Arta. During his high school years he started building his first devices, with one of them being the PEACE device(2014), for which he was awarded in the Google Science Fair in July of the same year.</p>
+							<p>Since then he has taken part in many Tech Conferences, first of them being TEDx Athens, in November 2014, where his speech gave him the best comments from both the participants and organizers of the event. He was then invited as a speaker from the Greek Student Society of Imperial College to give a speech about innovations during the economic crisis, as a perspective that could stimulate the Greek economy. Last September he was a lead speaker on Athens Maker Faire held at the Exhibition Center of Peristeri.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="myModal4" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/smurnakis.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Nicolas Smyrnakis</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Nicolas Smyrnakis is a writer, success coach, founder of IslandofMan success philosophy. He studied in Athens University of Economics and Business (AUEB) and holds an MBA degree (International MBA – AUEB). For several years he was teaching the course “Strategy and Innovation” in a private college.</p>
+							<p>His work is free online. He has distinguished himself in three literature contests (poetry, novel, short story). He has received two internet awards (e-awards)in the categories “Article 2011” and “Writing work 2011” (collective e-book).</p>
+							<p>Through his seminars in Greece and abroad, he has taught the success principles to thousands of people. He is trusted by important private and public organizations that wish to increase their effectiveness. Through tested strategies, hemotivates people to find their purpose, to create their personal vision, to increase their self-confidence, to overcome their fears, to fight their negative habits, to improve their relationships, to postpone their procrastination, to achieve their goals, to bring out the leader inside them, to be led to total change and development in every aspect of their lives. </p>
+							<p>His last book “Success was hidden in my bedside table” (advice, quotations and strategies for an exceptional life” is released by DIOPTRA publishing.</p>
+							<p>His vision is to help people all around the world to find their own vision and accouter them with the mediums needed to fulfill it. </p>
+							<p>For more information visit <a class="ted-primary" href="http://www.IslandofMan.me" target="_blank">www.IslandofMan.me</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="myModal5" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Edouard jacqmin.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Edouard Jacqmin</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Most of us dream about traveling. But many of us believe we can't because of lack of money. Edouard, 24, has travelled in Eastern Europe for 21 days without spending a single cent. One day he just emptied his wallet and hit the road. Crossing 5 different countries, he learned during this incredible adventure 4 lessons we can all apply in our daily lives.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="myModal6" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Adamakis.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Yiannis Adamakis</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>The painter Yiannis Adamakis was born in 1959 in Piraeus, Greece. He combined studies in Econimcs and Art. He has done more than 30 individual exhibitions and many more group exhibitions in Greece, Belgium, France, Germany, Cyprus, Poland, Russia and Turkey. Amongst them are the famous international Art fairs : "Art Athina" in Athens, "Art Jonction" in Nice, France, "Lineart" in Ghent, Belgium and "Art Paris" in Paris, France. He has also taken part in two international workshops : one in Cherepovets, Russia and the other in Kusadasi, Turkey . </p>
+							<p>From 1989 to 1999 he was an Art teacher at the Schools (adult classes) of the municipality of Keratsini . At the same time he was a Cultural Committee member and consultant to the City in Art subjects. Many of his articles have been published in art related magazines, newspapers and art catalogs. He is a member of the Chamber of Fine Arts, where he was elected twice as member of the Judgment and Classification Committee and Rank. He currently lives in Athens, where he is in collaboration with the Zoumboulakis gallery.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div id="myModal7" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/kontopidis.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Dimitrios Kontopidis</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p> Dimitrios Kontopidis, 34 years old, is the President of the 'Panhellenic Association of Cystic Fibrosis'' and also President & Founder of '' Humane Social Enterprise ''.He is a graduate from both Technological Educational Institute of Graphic Design and also Architecture from the National Technical University of Athens.</p>
+							<p>The last few years he dedicated in making Health Policy for chronic diseases, representing patients and empowerment of people with disabilities. As President of the National Association of Cystic Fibrosis and Project Manager from 2012 until today has managed to change the current status of this disease in our country with an extraordinary successful plan about patients rights.</p>
+							<p>The successful awareness campaign the he planned for Cystic Fibrosis called '' each breath '', got awarded with the Gold Health Care Award of 2016 and was the reason for the continuation of this plan for other chronic diseases also. In 2016 he created the '' Humane Social Enterprise '' a social enterprise empowerment of people with disabilities that combines design & care by designing innovative and sustainable systems.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal10" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Sharon.jpg'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Sharon Jackson</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Sharon designed and built ESA, In Drapanos, Crete in 2011, as a sustainable, off- grid,
+								international training and research academy. ESA evolved from Sharon’s vision and global
+								experiences as a company director and teaching in business school academia over 24 years. In
+								2016 and 2017 she received awards at ‘World CSR Day’ in Mumbai, India, in recognition of the
+								global sustainability education impact of ESA.</p>
+							<p>ESA education programmes connect people with the natural environment. She has written about
+								ESA as an action research, case study for ‘biophilia’ and the positive impacts on human learning
+								and health (2016, Routledge). Currently she is preparing a paper for presentation and publication
+								in Cairo, entitled ‘Women Architects in the Grand Design of Sustainable Development’.</p>
+							<p></p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal8" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/kritsali.png'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Natalia Kritsali</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Natalia is an innovation designer, changemaker, jigsaw puzzle lover, co-founder of Bloode - a highly awarded social enterprise whose aim is to increase blood donated for medical use - and a proud social entrepreneur. Born in Athens and raised by her parents with values of caring and loving and goals of a better world. Athens College alumni, and graduate from Athens University of Economics and Business, Department of Management Science and Technology.</p>
+							<p>She has participated in various projects known for their dynamic and will to tackle severe issues, such as: the Global Shapers -a WEF society-, Changemakers Community by ASHOKA, ThinkBiz by AUEB, served as Member of Board in JA Alumni Europe, and was a member of the Startup Boat, a project that brought successful people and intellectuals from all over the world to discuss and find solutions for the current refugee crisis.</p>
+							<p>She has also received distinctions such as, European Winner and Global Finalist of Global Student Entrepreneur Award, she won the Leadership Award from JA Europe and is included to the 30under30 list. Despite her 21 of age, Natalia loves “to dare”, which is also her motto, and every day strives to inspire young people to risk, to attempt and contribute in society.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div id="myModal9" class="modal fade" role="dialog">
+	<div class="outer">
+		<div class="middle">
+			<div class="inner">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<img class="portfolio-modal-img" src="{% static 'TEDxTechnicalUniversityofCrete2017/images/portfolio/Kounelas.JPG'%}"/>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Hlias Kounelas</h4>
+						</div>
+						<div class="modal-body text-justify">
+							<p>Would you give your life for something you know from the beginning it would’t happen?</p>
+							<p>I would give mine.</p>
+							<p>Short bio:</p>
+							<p>I am an actor and I spend my mornings in the public hospitals of Attica.I perform for adults patients with a fellow actress, Ifigeneia Griva. This action is funded by the National Theater and is usually addressed to one patient at a time. We have exceeded the number of 400 plays watched by patients in the final stage.</p>
+							<p>At noon I teach acting to new actors at drama schools.My lesson is called "Clown - a course on failure" and deals with things that actors dislike on themselves. Actually this course would be useful for politicians or journalists.</p>
+							<p>In the evenings I perform in several houses of Athens with a graduate student of mine called Panagiotis Kammenos. We have created a performance that takes place only in houses. We only have one condition which is the existence of some unknown spectators. The hosts continue to open their houses so we have overcome the number of 200 houses and that’s the reason the “8th day” (that’s the name of our act) continues its journey.</p>
+							<p>Let’s talk about the past and the future now.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/jquery.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/bootstrap.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/jquery.inview.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/wow.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/mousescroll.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/smoothscroll.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/jquery.countTo.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/lightbox.min.js'%}"></script>
+	<script type="text/javascript" src="{% static 'TEDxTechnicalUniversityofCrete2017/js/main.js'%}"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			changevideo();
+
+			$(window).resize(function () {
+				changevideo();
+			});
+
+		});
+
+		function changevideo() {
+			var captionW = $(".caption").width();
+			var captionH = $(".caption").height();
+			var windowW = $(window).width();
+			$("#mainvideo").css("width", windowW + "px");
+			var heightW = $("#mainvideo").height();
+//alert(windowW);
+			var captionHtogo = (heightW - captionH) / 2;
+			captionHtogo -= 20;
+//alert(captionW);
+			$(".caption").css("padding-top", captionHtogo + "px");
+			$("#homevideo").css("width", windowW + "px");
+			$("#homevideo").css("height", heightW + "px");
+//$("#mainvideo").css("height", heightW+"px");
+		}
+
+	</script>
+
+</body>
+</html>

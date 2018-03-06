@@ -35,8 +35,8 @@ INSTALLED_APPS = [
 	'django.contrib.sessions',
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
-	'TEDxTechnicalUniversityofCrete2017',
-	'TEDxTechnicalUniversityofCrete2018',
+	'TEDx2017',
+	'TEDx2018',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +117,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	('TEDxTechnicalUniversityofCrete2017', os.path.join(BASE_DIR, 'TEDxTechnicalUniversityofCrete2017', 'static')),
-	('TEDxTechnicalUniversityofCrete2018', os.path.join(BASE_DIR, 'TEDxTechnicalUniversityofCrete2018', 'static')),
+	('TEDx2017', os.path.join(BASE_DIR, 'TEDx2017', 'static')),
+	('TEDx2018', os.path.join(BASE_DIR, 'TEDx2018', 'static')),
 )

@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-</head>
-<body>
-<h1>This is the homepage</h1>
-<p>Welcome to the first page of the site</p>
-</body>
-</html>
+{% extends 'TEDx2018/base.html' %}
+{% block title %}{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="panel panel-default hasShadow">
+			<div class="panel-heading">
+				<h1 class="text-center">Home</h1>
+			</div>
+			<div class="panel-body">
+				{% if message %}
+					<p class="{{ textClass }}">{{ message }}</p>
+				{% endif %}
+				<a href="#">
+					{#				<a href="{% url 'taskmanager:calculate' %}">#}
+					<button class="center-block btn btn-success btn-lg">Calculate!</button>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}

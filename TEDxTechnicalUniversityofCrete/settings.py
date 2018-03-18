@@ -24,7 +24,7 @@ SECRET_KEY = 'l80pzdow@bn$1i=9f2+dc3t&k!y1gxiikr4fjz83(2i=%b+4cn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['147.27.70.123', 'www.tedxtechnicaluniversityofcrete.com', 'tedxtechnicaluniversityofcrete.com']
+ALLOWED_HOSTS = ['147.27.70.123', 'www.tedxtechnicaluniversityofcrete.com', 'tedxtechnicaluniversityofcrete.com', '127.0.0.1']
 
 # Application definition
 

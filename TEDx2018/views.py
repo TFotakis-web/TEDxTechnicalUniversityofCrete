@@ -7,3 +7,11 @@ def home(request):
 
 def about(request):
 	return render(request, 'TEDx2018/about.html')
+
+
+def custom_404(request):
+	return render(request, 'TEDx2018/404.html')
+
+
+def custom_500(request):
+	return render(request, 'TEDx2018/500.html')

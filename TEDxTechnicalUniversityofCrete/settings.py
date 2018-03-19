@@ -23,6 +23,7 @@ SECRET_KEY = 'l80pzdow@bn$1i=9f2+dc3t&k!y1gxiikr4fjz83(2i=%b+4cn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['147.27.70.123', 'www.tedxtechnicaluniversityofcrete.com', 'tedxtechnicaluniversityofcrete.com', '127.0.0.1']
 
@@ -121,6 +122,8 @@ STATICFILES_DIRS = (
 	('TEDx2017', os.path.join(BASE_DIR, 'TEDx2017', 'static')),
 	('TEDx2018', os.path.join(BASE_DIR, 'TEDx2018', 'static')),
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 

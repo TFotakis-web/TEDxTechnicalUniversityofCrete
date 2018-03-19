@@ -18,7 +18,9 @@ from django.urls import path, include
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
-	path('', include('TEDx2017.urls')),
+	path('2017/', include('TEDx2017.urls')),
 	path('developmentTestbench/', include('TEDx2018.urls')),
-	path('2018/', include('ComingSoon.urls')),
+	path('', include('ComingSoon.urls')),
 ]
+handler404 = 'TEDx2018.views.custom_404'
+handler500 = 'TEDx2018.views.custom_500'

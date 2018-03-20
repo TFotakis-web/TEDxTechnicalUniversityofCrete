@@ -1,3 +1,22 @@
 .navbar-toggler {
 	border: 0;
 }
+
+.full-screen-carousel-img {
+	height: 100vh;
+	background-repeat: inherit;
+	background-position: center center;
+	background-size: cover;
+}
+
+.carousel-blur {
+	-webkit-filter: blur(50px);
+	-moz-filter: blur(50px);
+	-o-filter: blur(50px);
+	-ms-filter: blur(50px);
+	filter: blur(50px);
+}
+
+.navbar-placeholder {
+	height: 80px;
+}

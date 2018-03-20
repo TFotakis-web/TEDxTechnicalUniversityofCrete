@@ -19,5 +19,20 @@ from . import views
 
 urlpatterns = [
 	path('', views.home, name='home'),
+	path('events/', views.currentEvent, name='currentEvent'),
+	path('events/upcoming/', views.upcomingEvents, name='upcomingEvents'),
+	path('events/previous/', views.previousEvents, name='previousEvents'),
+	path('talks/', views.talks, name='talks'),
+	path('speakers/', views.speakers, name='speakers'),
+	path('partners/', views.partners, name='partners'),
+	path('partners/becomeAPartner', views.becomeAPartner, name='becomeAPartner'),
+	path('community/', views.community, name='community'),
+	path('community/joinAsAMember/', views.joinAsAMember, name='joinAsAMember'),
+	path('community/donors/', views.donors, name='donors'),
+	path('community/donors/becomeADonor/', views.becomeADonor, name='becomeADonor'),
 	path('about/', views.about, name='about'),
+	path('about/ourTeam/', views.ourTeam, name='ourTeam'),
+	path('about/contactUs/', views.contactUs, name='contactUs'),
+	path('about/becomeAVolunteer/', views.becomeAVolunteer, name='becomeAVolunteer'),
+	path('about/faq/', views.faq, name='faq'),
 ]

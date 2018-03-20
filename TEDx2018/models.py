@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 
 
@@ -7,7 +9,8 @@ class Event(models.Model):
 	GoogleMapsLink = models.CharField(max_length=200, blank=True)
 	StartDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EndDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	EventImage = models.ImageField(blank=True, upload_to='TEDx2018/EventPictures/')
+	EventImage = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
+	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
 	EventDescription = models.TextField(blank=True)
 	TicketsNumber = models.IntegerField(default=0, blank=True)
 	SoldOut = models.BooleanField(default=False, blank=True)
@@ -20,6 +23,10 @@ class Event(models.Model):
 	Pinterest = models.CharField(max_length=100, blank=True)
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
+
+	@property
+	def Announced(self):
+		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
 	def __str__(self): return self.Name
 
@@ -49,7 +56,7 @@ class TeamMember(models.Model):
 	University = models.CharField(max_length=100)
 	School = models.CharField(max_length=100)
 	EducationalLevel = models.CharField(max_length=100)
-	ProfileImage = models.ImageField(default='TEDx2018/Shared/defaultProfile.png', blank=True, upload_to='TEDx2018/TeamMemberProfilePictures/')
+	ProfileImage = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/TeamMemberProfilePictures/')
 	Bio = models.TextField(blank=True)
 	Facebook = models.CharField(max_length=100, blank=True)
 	GitHub = models.CharField(max_length=100, blank=True)
@@ -87,10 +94,9 @@ class Speaker(models.Model):
 	Surname = models.CharField(max_length=100)
 	email = models.CharField(max_length=100, blank=True)
 	Telephone = models.IntegerField(blank=True, null=True)
-	ProfileImage = models.ImageField(default='TEDx2018/Shared/defaultProfile.png', blank=True, upload_to='TEDx2018/SpeakerProfilePictures/')
+	ProfileImage = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/SpeakerProfilePictures/')
 	Bio = models.TextField(blank=True)
-	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	Announced = models.BooleanField(default=False)
+	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
 	Presentation = models.FileField(blank=True, upload_to='TEDx2018/SpeakerPresentations/')
 	PresentationReleaseDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	PresentationRelease = models.BooleanField(default=False)
@@ -106,6 +112,10 @@ class Speaker(models.Model):
 
 	@property
 	def FullName(self): return self.Name + ' ' + self.Surname
+
+	@property
+	def Announced(self):
+		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
 	def __str__(self): return self.FullName + ' - ' + self.Event.Name
 
@@ -125,9 +135,12 @@ class Partner(models.Model):
 	Surname = models.CharField(max_length=100, blank=True)
 	email = models.CharField(max_length=100, blank=True)
 	Telephone = models.IntegerField(blank=True, null=True)
-	Logo = models.ImageField(default='TEDx2018/Shared/defaultSponsorLogo.png', blank=True, upload_to='TEDx2018/SponsorLogos/')
-	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	Announced = models.BooleanField(default=False)
+	Logo = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/SponsorLogos/')
+	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
 	InternetLink = models.CharField(max_length=100, blank=True)
+
+	@property
+	def Announced(self):
+		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
 	def __str__(self): return self.CompanyName + ' - ' + self.Event.Name

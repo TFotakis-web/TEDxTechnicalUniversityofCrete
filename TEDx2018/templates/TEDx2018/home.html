@@ -11,20 +11,24 @@
 			{% for event in events %}
 				<div class="carousel-item {% if forloop.first %}active{% endif %}">
 					{% if event.EventImage %}
-						{#							<img class="d-block w-100" src="{{ event.EventImage.url }}" alt="{{ event.Name }} event's image">#}
-						<div style="
-								height: 100vh;
-								background-image: url({{ event.EventImage.url }});
-								background-repeat: inherit;
-								background-position: center center;
-								background-size: cover;">
+						<div class="full-screen-carousel-img{% if not event.Announced %} carousel-blur{% endif %}"
+						     style="background-image: url({{ event.EventImage.url }});">
 						</div>
 					{% else %}
-						<div style="height: 100vh; background: gray"></div>
+						<div class="full-screen-carousel-img carousel-blur"
+						     style="background-image: url('/media/TEDx2018/Shared/XBlackBig.svg');">
+						</div>
 					{% endif %}
-					<div class="carousel-caption d-none d-md-block">
-						<h5>{{ event.Name }}</h5>
-						<p>{{ event.StartDateTime }}</p>
+					<div class="carousel-caption d-block">
+						{% if event.Announced %}
+							<h5>{{ event.Name }}</h5>
+							<p>{{ event.StartDateTime }}</p>
+						{% else %}
+							<h5>Upcoming Event</h5>
+							<hr class="my-4 bg-white">
+							<h6>Announcement Date</h6>
+							<p>{{ event.AnnouncementDateTime }}</p>
+						{% endif %}
 					</div>
 				</div>
 			{% endfor %}

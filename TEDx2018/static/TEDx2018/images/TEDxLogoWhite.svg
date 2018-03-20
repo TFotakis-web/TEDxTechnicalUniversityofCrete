@@ -3,15 +3,15 @@
 		xmlns:dc="http://purl.org/dc/elements/1.1/"
 		xmlns:cc="http://creativecommons.org/ns#"
 		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns="http://www.w3.org/2000/svg"
 		xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
 		xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-		xmlns="http://www.w3.org/2000/svg"
-		width="1920pt"
-		height="1080pt"
-		viewBox="0 0 1920 1080"
+		width="1694.9766pt"
+		height="294.96875pt"
+		viewBox="0 0 1694.9766 294.96875"
 		version="1.2"
 		id="svg127"
-		sodipodi:docname="TEDxLogo.svg"
+		sodipodi:docname="TEDxLogoWhite.svg"
 		inkscape:version="0.92.2 2405546, 2018-03-11">
 	<metadata
 			id="metadata133">
@@ -36,19 +36,24 @@
 			guidetolerance="10"
 			inkscape:pageopacity="0"
 			inkscape:pageshadow="2"
-			inkscape:window-width="1280"
-			inkscape:window-height="975"
+			inkscape:window-width="1600"
+			inkscape:window-height="849"
 			id="namedview129"
 			showgrid="false"
 			inkscape:zoom="0.36460193"
-			inkscape:cx="1247.048"
-			inkscape:cy="707.02604"
-			inkscape:window-x="0"
-			inkscape:window-y="0"
+			inkscape:cx="1065.9202"
+			inkscape:cy="168.68229"
+			inkscape:window-x="1280"
+			inkscape:window-y="379"
 			inkscape:window-maximized="1"
-			inkscape:current-layer="svg127"/>
+			inkscape:current-layer="svg127"
+			fit-margin-top="0"
+			fit-margin-left="0"
+			fit-margin-right="0"
+			fit-margin-bottom="0"/>
 	<g
-			id="surface577">
+			id="surface577"
+			transform="translate(-99.847656,-381.27344)">
 		<path
 				style="fill:#ff2805;fill-opacity:1;fill-rule:nonzero;stroke:none"
 				d="m 110.44922,655.41406 -7.56641,-10.90625 h 7.21094 l 4.05078,6.00781 4.00391,-6.00781 h 6.98828 l -7.56641,10.76953 8.5,12.24219 h -7.20703 l -4.80859,-7.25391 -4.80469,7.25391 h -7.07812 z m 0,0"

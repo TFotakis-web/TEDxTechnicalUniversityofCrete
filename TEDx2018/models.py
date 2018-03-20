@@ -7,7 +7,7 @@ class Event(models.Model):
 	GoogleMapsLink = models.CharField(max_length=200, blank=True)
 	StartDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EndDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	EventImage = models.ImageField(blank=True, upload_to='EventPictures/')
+	EventImage = models.ImageField(blank=True, upload_to='TEDx2018/EventPictures/')
 	EventDescription = models.TextField(blank=True)
 	TicketsNumber = models.IntegerField(default=0, blank=True)
 	SoldOut = models.BooleanField(default=False, blank=True)

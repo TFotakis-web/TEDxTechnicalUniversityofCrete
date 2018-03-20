@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116055166-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+		gtag('config', 'UA-116055166-1');
+	</script>
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +29,23 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	{#	Fontawesome#}
+	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>#}
+	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>#}
+	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>#}
+
+	{#	Fontello#}
+	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/fontello.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/animation.css' %}"/>
+
 	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/animate.min.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/style.css' %}"/>
 </head>
 <body>
-<nav class="navbar sticky-top navbar-expand-md navbar-light border-bottom bg-white">
+{#<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white" style="background: transparent !important;">#}
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white">
 	<a class="navbar-brand" href="#">
-		<img src="{% static 'TEDx2018/images/TEDxLogoBlack.svg' %}" alt="TEDxTechnicalUniversityofCrete Logo" height="40">
+		<img src="{% static 'TEDx2018/images/TEDxLogoBlack.svg' %}" alt="TEDxTechnicalUniversityofCrete Logo" height="50">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -57,13 +80,31 @@
 					Archive
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">Light Leak - 2017</a>
+					<a class="dropdown-item" href="{% url 'TEDx2017:home' %}">Light Leak - 2017</a>
 				</div>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link disabled" href="#">Disabled</a>
 			</li>
 		</ul>
+		<ul class="navbar-nav ml-auto"
+		    style="
+			"
+		>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.facebook.com/tedxtuoc" target="_blank"><i class="icon-facebook"></i></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.twitter.com/tedxtuoc" target="_blank"><i class="icon-twitter"></i></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.linkedin.com/company/tedxtechnicaluniversityofcrete/" target="_blank"><i class="icon-linkedin"></i></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="https://www.instagram.com/tedxtuoc/" target="_blank"><i class="icon-instagram"></i></a>
+			</li>
+		</ul>
+
 	</div>
 </nav>
 {% block body %}{% endblock %}

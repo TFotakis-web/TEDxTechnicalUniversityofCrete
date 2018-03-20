@@ -86,18 +86,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-	{
-		'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-	},
-	{
-		'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-	},
+	{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+	{'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+	{'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+	{'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 
 # Internationalization
@@ -105,7 +97,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Athens'
 
 USE_I18N = True
 
@@ -115,20 +107,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = (
+	('ComingSoon', os.path.join(BASE_DIR, 'ComingSoon', 'static')),
 	('TEDx2017', os.path.join(BASE_DIR, 'TEDx2017', 'static')),
 	('TEDx2018', os.path.join(BASE_DIR, 'TEDx2018', 'static')),
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = '/media/'
-
+# Media files (Images, Videos, User uploads in general)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# MEDIAFILES_DIRS = (
-# 	('TEDx2018', os.path.join(BASE_DIR, 'TEDx2018', 'media')),
-# )
+MEDIA_URL = '/media/'

@@ -26,7 +26,9 @@ class Event(models.Model):
 
 	@property
 	def Announced(self):
-		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	# return True
 
 	@property
 	def HasLinks(self):
@@ -132,7 +134,9 @@ class Speaker(models.Model):
 
 	@property
 	def Announced(self):
-		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	# return True
 
 	@property
 	def HasLinks(self):
@@ -144,6 +148,7 @@ class Speaker(models.Model):
 class PartnerLevel(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
+	Level = models.IntegerField(default=1, blank=True)
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 
@@ -162,7 +167,7 @@ class Partner(models.Model):
 
 	@property
 	def Announced(self):
-		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
 	@property
 	def HasLinks(self):

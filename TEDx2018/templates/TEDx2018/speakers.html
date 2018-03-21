@@ -5,6 +5,8 @@
 	<div class="navbar-placeholder"></div>
 	<div class="container-fluid">
 		{% for event in events %}
+			{#			Todo: Enable this check#}
+			{#			{% if event.Announced %}#}
 			<div class="mb-5">
 				<div class="justify-content-center">
 					<h2>
@@ -16,54 +18,57 @@
 				<hr>
 				<div class="row justify-content-center">
 					{% for speaker in event.speaker_set.all %}
-						<div class="card m-3">
-							<div class="card-header p-0">
-								<a href="{{ speaker.Name }}_{{ speaker.Surname }}/"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt="Card image cap"></a>
-							</div>
-							<div class="card-body">
-								<h5 class="card-title font-weight-bold">{{ speaker.FullName }}</h5>
-								<p class="card-text font-weight-light">{{ speaker.Title }}</p>
-							</div>
-							{% if speaker.HasLinks %}
-								<div class="card-footer">
-									<div class="row justify-content-center">
-										{% if speaker.Presentation %}
-											<a href="{{ speaker.Presentation.url }}" class="card-link mb-2"><i class="icon-file-powerpoint"></i></a>
-										{% endif %}
-										{% if speaker.Facebook %}
-											<a href="{{ speaker.Facebook }}" class="card-link mb-2"><i class="icon-facebook"></i></a>
-										{% endif %}
-										{% if speaker.GitHub %}
-											<a href="{{ speaker.GitHub }}" class="card-link mb-2"><i class="icon-github-circled"></i></a>
-										{% endif %}
-										{% if speaker.GooglePlus %}
-											<a href="{{ speaker.GooglePlus }}" class="card-link mb-2"><i class="icon-gplus"></i></a>
-										{% endif %}
-										{% if speaker.Instagram %}
-											<a href="{{ speaker.Instagram }}" class="card-link mb-2"><i class="icon-instagram"></i></a>
-										{% endif %}
-										{% if speaker.LinkedIn %}
-											<a href="{{ speaker.LinkedIn }}" class="card-link mb-2"><i class="icon-linkedin"></i></a>
-										{% endif %}
-										{% if speaker.Pinterest %}
-											<a href="{{ speaker.Pinterest }}" class="card-link mb-2"><i class="icon-pinterest"></i></a>
-										{% endif %}
-										{% if speaker.Twitter %}
-											<a href="{{ speaker.Twitter }}" class="card-link mb-2"><i class="icon-twitter"></i></a>
-										{% endif %}
-										{% if speaker.YouTube %}
-											<a href="{{ speaker.YouTube }}" class="card-link mb-2"><i class="icon-youtube-play"></i></a>
-										{% endif %}
-										{% if speaker.InternetLink %}
-											<a href="{{ speaker.InternetLink }}" class="card-link mb-2"><i class="icon-link-ext"></i></a>
-										{% endif %}
-									</div>
+						{% if speaker.Announced %}
+							<div class="card m-3">
+								<div class="card-header p-0">
+									<a href="{{ speaker.Name }}_{{ speaker.Surname }}/"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt="Card image cap"></a>
 								</div>
-							{% endif %}
-						</div>
+								<div class="card-body">
+									<h5 class="card-title font-weight-bold">{{ speaker.FullName }}</h5>
+									<p class="card-text font-weight-light">{{ speaker.Title }}</p>
+								</div>
+								{% if speaker.HasLinks %}
+									<div class="card-footer">
+										<div class="row justify-content-center">
+											{% if speaker.Presentation %}
+												<a href="{{ speaker.Presentation.url }}" class="card-link mb-2"><i class="icon-file-powerpoint"></i></a>
+											{% endif %}
+											{% if speaker.Facebook %}
+												<a href="{{ speaker.Facebook }}" class="card-link mb-2"><i class="icon-facebook"></i></a>
+											{% endif %}
+											{% if speaker.GitHub %}
+												<a href="{{ speaker.GitHub }}" class="card-link mb-2"><i class="icon-github-circled"></i></a>
+											{% endif %}
+											{% if speaker.GooglePlus %}
+												<a href="{{ speaker.GooglePlus }}" class="card-link mb-2"><i class="icon-gplus"></i></a>
+											{% endif %}
+											{% if speaker.Instagram %}
+												<a href="{{ speaker.Instagram }}" class="card-link mb-2"><i class="icon-instagram"></i></a>
+											{% endif %}
+											{% if speaker.LinkedIn %}
+												<a href="{{ speaker.LinkedIn }}" class="card-link mb-2"><i class="icon-linkedin"></i></a>
+											{% endif %}
+											{% if speaker.Pinterest %}
+												<a href="{{ speaker.Pinterest }}" class="card-link mb-2"><i class="icon-pinterest"></i></a>
+											{% endif %}
+											{% if speaker.Twitter %}
+												<a href="{{ speaker.Twitter }}" class="card-link mb-2"><i class="icon-twitter"></i></a>
+											{% endif %}
+											{% if speaker.YouTube %}
+												<a href="{{ speaker.YouTube }}" class="card-link mb-2"><i class="icon-youtube-play"></i></a>
+											{% endif %}
+											{% if speaker.InternetLink %}
+												<a href="{{ speaker.InternetLink }}" class="card-link mb-2"><i class="icon-link-ext"></i></a>
+											{% endif %}
+										</div>
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
 					{% endfor %}
 				</div>
 			</div>
+			{#			{% endif %}#}
 		{% endfor %}
 	</div>
 {% endblock %}

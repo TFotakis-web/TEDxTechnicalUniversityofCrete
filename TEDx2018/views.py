@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render
 
 from TEDx2018.models import Event, Speaker
@@ -38,7 +40,14 @@ def speakerProfile(request, fullName):
 
 
 def partners(request):
-	return render(request=request, template_name='TEDx2018/partners.html')
+	events = []
+	eventstmp = Event.objects.exclude(AnnouncementDateTime__gt=datetime.now().astimezone()).order_by('-StartDateTime')
+	for event in eventstmp:
+		partnersList = []
+		for partnerLevel in event.partnerlevel_set.all().order_by('Level'):
+			partnersList.append({'Name': partnerLevel.Name, 'partners': event.partner_set.filter(PartnerLevel=partnerLevel)})
+		events.append({'Name': event.Name, 'partnerLevels': partnersList})
+	return render(request=request, template_name='TEDx2018/partners.html', context={'events': events})
 
 
 def becomeAPartner(request):

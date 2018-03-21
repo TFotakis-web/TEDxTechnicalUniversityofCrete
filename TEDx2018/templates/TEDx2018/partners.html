@@ -3,7 +3,40 @@
 {% block partnersTabActive %}active{% endblock %}
 {% block body %}
 	<div class="navbar-placeholder"></div>
-	<div class="container">
-		<h1>Partners</h1>
+	<div class="container-fluid">
+		{% for event in events %}
+			<div class="mb-5">
+				<div class="justify-content-center">
+					<h2>
+						<span class="font-weight-bold tedx-red">TEDx</span>
+						<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
+						<span class="font-weight-light">{{ event.Name }}</span>
+					</h2>
+				</div>
+				<hr>
+				{% for partnerLevel in event.partnerLevels %}
+					<div class="justify-content-center">
+						<h3 class="text-center">{{ partnerLevel.Name }}</h3>
+					</div>
+					<div class="row justify-content-center">
+						{% for partner in partnerLevel.partners %}
+							{% if partner.Announced %}
+								<div class="card m-3">
+									<div class="card-header p-0">
+										<a href="{% if partner.InternetLink %}{{ partner.InternetLink }}{% else %}#{% endif %}"
+										   target="{% if partner.InternetLink %}_blank{% endif %}">
+											<img class="card-img-top" src="{{ partner.Logo.url }}" alt="Partner Logo">
+										</a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title font-weight-bold">{{ partner.CompanyName }}</h5>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endfor %}
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}

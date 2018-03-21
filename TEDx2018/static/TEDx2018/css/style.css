@@ -58,3 +58,7 @@ hr {
 .card-footer {
 	background-color: white;
 }
+
+.card {
+	width: 20rem;
+}

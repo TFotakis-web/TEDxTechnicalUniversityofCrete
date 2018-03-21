@@ -32,6 +32,10 @@ class Event(models.Model):
 	def HasLinks(self):
 		return bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube)
 
+	@property
+	def HasTalkLinks(self):
+		return self.speaker_set.exclude(TalkYouTubeLink='').count()
+
 	def __str__(self): return self.Name
 
 

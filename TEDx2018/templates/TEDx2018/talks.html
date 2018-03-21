@@ -3,7 +3,39 @@
 {% block talksTabActive %}active{% endblock %}
 {% block body %}
 	<div class="navbar-placeholder"></div>
-	<div class="container">
-		<h1>Talks</h1>
+	<div class="container-fluid">
+		{% for event in events %}
+			{% if event.HasTalkLinks %}
+				<div class="mb-5">
+					<div class="justify-content-center">
+						<h2>
+							<span class="font-weight-bold tedx-red">TEDx</span>
+							<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
+							<span class="font-weight-light">{{ event.Name }}</span>
+						</h2>
+					</div>
+					<hr>
+					<div class="row justify-content-center">
+						{% for speaker in event.speaker_set.all %}
+							{% if speaker.TalkYouTubeLink %}
+								<div class="card m-3">
+									<div class="card-header p-0">
+										<a href="https://www.youtube.com/watch?v={{ speaker.TalkYouTubeLink }}" target="_blank"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt="Card image cap"></a>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title font-weight-bold">{{ speaker.TalkTitle }}</h5>
+									</div>
+									<div class="card-footer">
+										<a href="{% url 'TEDx2018:speakers' %}{{ speaker.Name }}_{{ speaker.Surname }}/">
+											<p class="card-text font-weight-light">{{ speaker.FullName }}</p>
+										</a>
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
 	</div>
 {% endblock %}

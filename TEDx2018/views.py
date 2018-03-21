@@ -22,7 +22,8 @@ def previousEvents(request):
 
 
 def talks(request):
-	return render(request=request, template_name='TEDx2018/talks.html')
+	events = Event.objects.order_by('-StartDateTime')
+	return render(request=request, template_name='TEDx2018/talks.html', context={'events': events})
 
 
 def speakers(request):

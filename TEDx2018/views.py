@@ -1,8 +1,9 @@
 from datetime import datetime
+from random import shuffle
 
 from django.shortcuts import render
 
-from TEDx2018.models import Event, Speaker
+from TEDx2018.models import Event, Speaker, AboutUsCarouselPhoto
 
 
 def home(request):
@@ -71,7 +72,10 @@ def becomeADonor(request):
 
 
 def about(request):
-	return render(request=request, template_name='TEDx2018/about.html')
+	photos = list(AboutUsCarouselPhoto.objects.all())
+	shuffle(photos)
+	team = Event.objects.order_by('-StartDateTime').first().teammember_set.all().order_by('Name')
+	return render(request=request, template_name='TEDx2018/about.html', context={'photos': photos, 'team': team})
 
 
 def ourTeam(request):

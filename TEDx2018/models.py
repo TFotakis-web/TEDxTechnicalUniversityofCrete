@@ -174,3 +174,11 @@ class Partner(models.Model):
 		return self.InternetLink
 
 	def __str__(self): return self.CompanyName + ' - ' + self.Event.Name
+
+
+class AboutUsCarouselPhoto(models.Model):
+	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
+	Photo = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/AboutUsCarouselPhotos/')
+	Description = models.CharField(max_length=100, blank=True)
+
+	def __str__(self): return self.Photo.name + ' - ' + self.Event.Name + ' - ' + self.Description

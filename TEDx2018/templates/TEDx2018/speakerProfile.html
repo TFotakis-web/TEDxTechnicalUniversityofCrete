@@ -20,7 +20,7 @@
 					<h3 class="text-center m-3">{{ speaker.TalkTitle }}</h3>
 				{% endif %}
 				{% if speaker.TalkSummary %}
-					<hr>
+					<hr class="hr-red">
 					<p class="text-justify mb-3">{{ speaker.TalkSummary }}</p>
 				{% endif %}
 				{% if speaker.TalkYouTubeLink %}
@@ -30,7 +30,7 @@
 				{% endif %}
 				{% if speaker.Bio %}
 					<h3 class="text-center mt-3">Bio</h3>
-					<hr>
+					<hr class="hr-red">
 				{% endif %}
 				<div class="row mb-5">
 					<div class="col-lg-4">
@@ -44,7 +44,7 @@
 			{% if speaker.HasLinks %}
 				<div class="col-lg-4 mt-3 mb-5">
 					<h3 class="text-center">Links</h3>
-					<hr>
+					<hr class="hr-red">
 					{% if speaker.Presentation %}
 						<a href="{{ speaker.Presentation.url }}" class="d-flex mb-2"><i class="icon-file-powerpoint"></i> {{ speaker.Presentation.url }}</a>
 					{% endif %}

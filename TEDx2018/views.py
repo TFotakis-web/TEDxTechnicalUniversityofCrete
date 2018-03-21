@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from TEDx2018.models import Event
+from TEDx2018.models import Event, Speaker
 
 
 def home(request):
@@ -26,7 +26,14 @@ def talks(request):
 
 
 def speakers(request):
-	return render(request=request, template_name='TEDx2018/speakers.html')
+	events = Event.objects.order_by('-StartDateTime')
+	return render(request=request, template_name='TEDx2018/speakers.html', context={'events': events})
+
+
+def speakerProfile(request, fullName):
+	name, surname = fullName.split('_')
+	speaker = Speaker.objects.filter(Name=name, Surname=surname).first()
+	return render(request=request, template_name='TEDx2018/speakerProfile.html', context={'speaker': speaker})
 
 
 def partners(request):

@@ -1,3 +1,15 @@
+.container {
+	background-color: #f4f4f4;
+}
+
+.container-fluid {
+	background-color: #f4f4f4;
+}
+
+.bg-light-gray {
+	background-color: #f4f4f4;
+}
+
 .navbar-toggler {
 	border: 0;
 }
@@ -18,5 +30,31 @@
 }
 
 .navbar-placeholder {
-	height: 80px;
+	height: 100px;
+	background: #f4f4f4;
+}
+
+.card {
+	margin: 0 auto;
+	float: none;
+	margin-bottom: 10px;
+}
+
+hr {
+	border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.tedx-red {
+	color: #e62b1e
+}
+
+.btn-circle {
+	height: 45px;
+	width: 45px;
+	border: 1px solid rgba(0, 0, 0, 0.4);
+	border-radius: 100%;
+}
+
+.card-footer {
+	background-color: white;
 }

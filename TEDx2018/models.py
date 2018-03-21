@@ -10,7 +10,7 @@ class Event(models.Model):
 	StartDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EndDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EventImage = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
-	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
+	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EventDescription = models.TextField(blank=True)
 	TicketsNumber = models.IntegerField(default=0, blank=True)
 	SoldOut = models.BooleanField(default=False, blank=True)
@@ -27,6 +27,10 @@ class Event(models.Model):
 	@property
 	def Announced(self):
 		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	@property
+	def HasLinks(self):
+		return bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube)
 
 	def __str__(self): return self.Name
 
@@ -66,9 +70,14 @@ class TeamMember(models.Model):
 	Pinterest = models.CharField(max_length=100, blank=True)
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
+	InternetLink = models.CharField(max_length=100, blank=True)
 
 	@property
 	def FullName(self): return self.Name + ' ' + self.Surname
+
+	@property
+	def HasLinks(self):
+		return bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube) | bool(self.InternetLink)
 
 	def __str__(self): return self.FullName
 
@@ -91,12 +100,13 @@ class TeamMemberAssignment(models.Model):
 class Speaker(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
-	Surname = models.CharField(max_length=100)
+	Surname = models.CharField(max_length=100, blank=True)
 	email = models.CharField(max_length=100, blank=True)
 	Telephone = models.IntegerField(blank=True, null=True)
 	ProfileImage = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/SpeakerProfilePictures/')
+	Title = models.CharField(max_length=100, blank=True)
 	Bio = models.TextField(blank=True)
-	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
+	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	Presentation = models.FileField(blank=True, upload_to='TEDx2018/SpeakerPresentations/')
 	PresentationReleaseDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	PresentationRelease = models.BooleanField(default=False)
@@ -109,6 +119,9 @@ class Speaker(models.Model):
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
 	InternetLink = models.CharField(max_length=100, blank=True)
+	TalkTitle = models.CharField(max_length=100, blank=True)
+	TalkSummary = models.TextField(blank=True)
+	TalkYouTubeLink = models.CharField(max_length=100, blank=True)
 
 	@property
 	def FullName(self): return self.Name + ' ' + self.Surname
@@ -116,6 +129,10 @@ class Speaker(models.Model):
 	@property
 	def Announced(self):
 		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	@property
+	def HasLinks(self):
+		return bool(self.Presentation) | bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube) | bool(self.InternetLink)
 
 	def __str__(self): return self.FullName + ' - ' + self.Event.Name
 
@@ -136,11 +153,15 @@ class Partner(models.Model):
 	email = models.CharField(max_length=100, blank=True)
 	Telephone = models.IntegerField(blank=True, null=True)
 	Logo = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/SponsorLogos/')
-	AnnouncementDateTime = models.DateTimeField(default=None, null=True)
+	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	InternetLink = models.CharField(max_length=100, blank=True)
 
 	@property
 	def Announced(self):
 		return self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	@property
+	def HasLinks(self):
+		return self.InternetLink
 
 	def __str__(self): return self.CompanyName + ' - ' + self.Event.Name

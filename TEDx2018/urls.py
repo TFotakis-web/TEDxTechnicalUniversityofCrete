@@ -24,6 +24,7 @@ urlpatterns = [
 	path('events/previous/', views.previousEvents, name='previousEvents'),
 	path('talks/', views.talks, name='talks'),
 	path('speakers/', views.speakers, name='speakers'),
+	path('speakers/<str:fullName>/', views.speakerProfile, name='speakers'),
 	path('partners/', views.partners, name='partners'),
 	path('partners/becomeAPartner', views.becomeAPartner, name='becomeAPartner'),
 	path('community/', views.community, name='community'),

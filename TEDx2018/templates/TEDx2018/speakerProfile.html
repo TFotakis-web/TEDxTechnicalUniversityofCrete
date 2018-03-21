@@ -1,0 +1,80 @@
+{% extends 'TEDx2018/base.html' %}
+{% block title %}{{ speaker.FullName }} - {% endblock %}
+{% block speakersTabActive %}active{% endblock %}
+{% block body %}
+	<div class="navbar-placeholder"></div>
+	{#	<div class="container-fluid">#}
+	<div class="container-fluid h-100">
+		<div class="row justify-content-center align-items-center" style="height: 165px">
+			<div class="col-12">
+				<h1 class="text-center">{{ speaker.FullName }}</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid bg-white">
+		<div class="row">
+			<div class="col-lg-8">
+				{% if speaker.TalkTitle %}
+					<h3 class="text-center mt-3">{{ speaker.TalkTitle }}</h3>
+					<hr>
+				{% endif %}
+				{% if speaker.TalkSummary %}
+					<p class="text-justify">{{ speaker.TalkSummary }}</p>
+				{% endif %}
+				{% if speaker.TalkYouTubeLink %}
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ speaker.TalkYouTubeLink }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					</div>
+				{% endif %}
+				{% if speaker.Bio %}
+					<h3 class="text-center mt-3">Bio</h3>
+					<hr>
+				{% endif %}
+				<div class="row mb-5">
+					<div class="col-lg-4">
+						<img class="img-fluid mb-3 d-block mx-auto" src="{{ speaker.ProfileImage.url }}" alt="{{ speaker.FullName }} profile image">
+					</div>
+					<div class="col-lg-8">
+						<p class="text-justify">{{ speaker.Bio }}</p>
+					</div>
+				</div>
+			</div>
+			{% if speaker.HasLinks %}
+				<div class="col-lg-4 mt-3 mb-5">
+					<h3 class="text-center">Links</h3>
+					<hr>
+					{% if speaker.Presentation %}
+						<a href="{{ speaker.Presentation.url }}" class="d-flex mb-2"><i class="icon-file-powerpoint"></i> {{ speaker.Presentation.url }}</a>
+					{% endif %}
+					{% if speaker.Facebook %}
+						<a href="{{ speaker.Facebook }}" class="d-flex mb-2"><i class="icon-facebook"></i> {{ speaker.Facebook }}</a>
+					{% endif %}
+					{% if speaker.GitHub %}
+						<a href="{{ speaker.GitHub }}" class="d-flex mb-2"><i class="icon-github-circled"></i> {{ speaker.GitHub }}</a>
+					{% endif %}
+					{% if speaker.GooglePlus %}
+						<a href="{{ speaker.GooglePlus }}" class="d-flex mb-2"><i class="icon-gplus"></i> {{ speaker.GooglePlus }}</a>
+					{% endif %}
+					{% if speaker.Instagram %}
+						<a href="{{ speaker.Instagram }}" class="d-flex mb-2"><i class="icon-instagram"></i> {{ speaker.Instagram }}</a>
+					{% endif %}
+					{% if speaker.LinkedIn %}
+						<a href="{{ speaker.LinkedIn }}" class="d-flex mb-2"><i class="icon-linkedin"></i> {{ speaker.LinkedIn }}</a>
+					{% endif %}
+					{% if speaker.Pinterest %}
+						<a href="{{ speaker.Pinterest }}" class="d-flex mb-2"><i class="icon-pinterest"></i> {{ speaker.Pinterest }}</a>
+					{% endif %}
+					{% if speaker.Twitter %}
+						<a href="{{ speaker.Twitter }}" class="d-flex mb-2"><i class="icon-twitter"></i> {{ speaker.Twitter }}</a>
+					{% endif %}
+					{% if speaker.YouTube %}
+						<a href="{{ speaker.YouTube }}" class="d-flex mb-2"><i class="icon-youtube-play"></i> {{ speaker.YouTube }}</a>
+					{% endif %}
+					{% if speaker.InternetLink %}
+						<a href="{{ speaker.InternetLink }}" class="d-flex mb-2"><i class="icon-link-ext"></i> {{ speaker.InternetLink }}</a>
+					{% endif %}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

@@ -23,6 +23,12 @@ def previousEvents(request):
 	return render(request=request, template_name='TEDx2018/404.html')
 
 
+def event(request, eventName):
+	eventName = eventName.replace('_', ' ')
+	event = Event.objects.filter(Name=eventName).first()
+	return render(request=request, template_name='TEDx2018/event.html', context={'event': event})
+
+
 def talks(request):
 	events = Event.objects.order_by('-StartDateTime')
 	return render(request=request, template_name='TEDx2018/talks.html', context={'events': events})

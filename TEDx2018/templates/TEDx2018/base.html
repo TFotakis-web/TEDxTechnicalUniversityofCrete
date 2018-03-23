@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,24 +16,36 @@
 	</script>
 
 	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock %}TEDx TechnicalUniversityofCrete: Ideas worth spreading</title>
+	<meta name="description" content="TED & TEDx Talks are influential videos from expert speakers on education, business, science, tech and creativity, with subtitles in 100+ languages. Ideas free to stream and download.">
+	<meta property="og:image" content="{% static 'TEDx2018/images/TEDxLogoBlack.png' %}">
+	<meta name="keywords" content="TED, TEDx, Talks, Themes, Speakers, Technology, Entertainment, Design, Technical, University, of, Crete, TechnicalUniversityofCrete, TEDxTechnicalUniversityofCrete, Light, Leak, Outcomes">
+	<link rel="mask-icon" href="{% static 'TEDx2018/images/mask-icon.svg' %}" color="#E62B1E" sizes="any">
+	<meta name="theme-color" content="#E62B1E">
+	<link rel="shortcut icon" href="{% static 'TEDx2018/images/favicon.ico' %}">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-title" content="TEDx TechnicalUniversityofCrete: Ideas worth spreading">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon" href="{% static 'TEDx2018/images/apple-touch-icon.png' %}">
+	<link rel="apple-touch-icon-precomposed" href="{% static 'TEDx2018/images/apple-touch-icon-precomposed.png' %}">
+	<meta name="application-name" content="TEDx TechnicalUniversityofCrete">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="title" content="TEDx TechnicalUniversityofCrete: Ideas worth spreading">
+	<meta property="og:title" content="TEDx TechnicalUniversityofCrete: Ideas worth spreading">
+	<meta property="og:description" content="TED & TEDx Talks are influential videos from expert speakers on education, business, science, tech and creativity, with subtitles in 100+ languages. Ideas free to stream and download.">
+	<meta property="og:url" content="http://tedxtechnicaluniversityofcrete.com/">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{% block title %}{% endblock %}TEDxTechnicalUniversityofCrete</title>
-
-	{% load static %}
 	<link rel="icon" href="{% static 'TEDx2018/images/favicon.ico' %}"/>
 
 	{#	Bootstrap#}
-	<link rel="stylesheet" href="{% static 'TEDx2018/css/bootstrap.css' %}">
-	{#	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
+	{#	<link rel="stylesheet" href="{% static 'TEDx2018/css/bootstrap.css' %}">#}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-	{#	Fontawesome#}
-	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>#}
-	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/regular.js" integrity="sha384-t7yHmUlwFrLxHXNLstawVRBMeSLcXTbQ5hsd0ifzwGtN7ZF7RZ8ppM7Ldinuoiif" crossorigin="anonymous"></script>#}
-	{#	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>#}
 
 	{#	Fontello#}
 	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/fontello.css' %}"/>
@@ -54,11 +67,11 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
 			<li class="nav-item dropdown {% block eventsTabActive %}{% endblock %}">
-				<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:currentEvent' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:event' 'Outcomes' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Events
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="{% url 'TEDx2018:currentEvent' %}">TEDxTechnicalUniversityofCrete 2018 Event</a>
+					<a class="dropdown-item" href="{% url 'TEDx2018:event' 'Outcomes' %}">TEDxTechnicalUniversityofCrete 2018 Event</a>
 					<a class="dropdown-item" href="{% url 'TEDx2018:upcomingEvents' %}">Upcoming Events</a>
 					<a class="dropdown-item" href="{% url 'TEDx2018:previousEvents' %}">Previous Events</a>
 				</div>

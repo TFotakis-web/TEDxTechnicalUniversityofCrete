@@ -22,6 +22,7 @@ urlpatterns = [
 	path('events/', views.currentEvent, name='currentEvent'),
 	path('events/upcoming/', views.upcomingEvents, name='upcomingEvents'),
 	path('events/previous/', views.previousEvents, name='previousEvents'),
+	path('events/<str:eventName>/', views.event, name='event'),
 	path('talks/', views.talks, name='talks'),
 	path('speakers/', views.speakers, name='speakers'),
 	path('speakers/<str:fullName>/', views.speakerProfile, name='speakersProfile'),

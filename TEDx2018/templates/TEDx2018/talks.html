@@ -7,15 +7,14 @@
 		{% for event in events %}
 			{% if event.HasTalkLinks %}
 				<div class="mb-5">
-					<div class="justify-content-center">
-						<h2>
-							<span class="font-weight-bold tedx-red">TEDx</span>
-							<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
-							<span class="font-weight-light">{{ event.Name }}</span>
-						</h2>
-					</div>
+					<h2>
+						<span class="font-weight-bold tedx-red">TEDx</span>
+						<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
+						<span class="font-weight-light">{{ event.Name }}</span>
+					</h2>
 					<hr class="hr-red">
 					<div class="row justify-content-center">
+
 						{% for speaker in event.speaker_set.all %}
 							{% if speaker.TalkYouTubeLink %}
 								<div class="card m-3">
@@ -27,7 +26,7 @@
 									</div>
 									<div class="card-footer">
 										<a href="{% url 'TEDx2018:speakers' %}{{ speaker.Name }}_{{ speaker.Surname }}/">
-											<p class="card-text font-weight-light">{{ speaker.FullName }}</p>
+											<h5 class="card-title font-weight-light">{{ speaker.FullName }}</h5>
 										</a>
 									</div>
 								</div>

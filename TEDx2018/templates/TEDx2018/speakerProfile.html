@@ -1,10 +1,6 @@
 {% extends 'TEDx2018/base.html' %}
 {% block title %}{{ speaker.FullName }} - {% endblock %}
-{% block speakersTabActive %}active{% endblock %}
 {% block body %}
-	{#	<div style="height: 100vh">#}
-	{#		<img class="img-fluid full-screen-carousel-img mb-3 d-block mx-auto" src="{{ speaker.ProfileImage.url }}" alt="{{ speaker.FullName }} profile image">#}
-	{#	</div>#}
 	<div class="navbar-placeholder"></div>
 	<div class="container-fluid h-100">
 		<div class="row justify-content-center align-items-center" style="height: 165px">
@@ -13,68 +9,96 @@
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid bg-white">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="{% if speaker.HasLinks %}col-lg-8{% else %}col{% endif %}">
-				{% if speaker.TalkTitle %}
-					<h3 class="text-center m-3">{{ speaker.TalkTitle }}</h3>
-				{% endif %}
-				{% if speaker.TalkSummary %}
-					<hr class="hr-red">
-					<p class="text-justify mb-3">{{ speaker.TalkSummary }}</p>
-				{% endif %}
-				{% if speaker.TalkYouTubeLink %}
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ speaker.TalkYouTubeLink }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				{% if speaker.TalkSummary or speaker.TalkYouTubeLink %}
+					<div class="card w-100 mb-3">
+						{% if speaker.TalkTitle %}
+							<div class="card-header">
+								<h3 class="text-center m-3">{{ speaker.TalkTitle }}</h3>
+							</div>
+						{% endif %}
+
+						<div class="card-body">
+							{% if speaker.TalkSummary %}
+								<hr class="hr-red">
+								<p class="text-justify mb-3">{{ speaker.TalkSummary }}</p>
+							{% endif %}
+							{% if speaker.TalkYouTubeLink %}
+								<div class="embed-responsive embed-responsive-16by9 ">
+									<iframe class="embed-responsive-item card-img-border" src="https://www.youtube.com/embed/{{ speaker.TalkYouTubeLink }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+								</div>
+							{% endif %}
+						</div>
 					</div>
 				{% endif %}
-				{% if speaker.Bio %}
-					<h3 class="text-center mt-3">Bio</h3>
-					<hr class="hr-red">
-				{% endif %}
-				<div class="row mb-5">
-					<div class="col-lg-4">
-						<img class="img-fluid mb-3 d-block mx-auto" src="{{ speaker.ProfileImage.url }}" alt="{{ speaker.FullName }} profile image">
-					</div>
-					<div class="col-lg-8">
-						<p class="text-justify">{{ speaker.Bio }}</p>
+				<div class="card w-100 mb-3">
+					{% if speaker.Bio %}
+						<div class="card-header">
+							<h3 class="text-center">Bio</h3>
+							<hr class="hr-red">
+						</div>
+					{% endif %}
+					<div class="card-body">
+						<div class="row justify-content-center align-items-center">
+							<div class="col-lg-4">
+								<div class="text-center">
+									<img class="img-fluid mb-3 card-img-border" src="{{ speaker.ProfileImage.url }}" alt="{{ speaker.FullName }} profile image">
+								</div>
+							</div>
+							<div class="col-lg-8">
+								{% if speaker.Bio %}
+									<p class="text-justify">{{ speaker.Bio }}</p>
+								{% endif %}
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			{% if speaker.HasLinks %}
-				<div class="col-lg-4 mt-3 mb-5">
-					<h3 class="text-center">Links</h3>
-					<hr class="hr-red">
-					{% if speaker.Presentation %}
-						<a href="{{ speaker.Presentation.url }}" class="d-flex mb-2"><i class="icon-file-powerpoint"></i> {{ speaker.Presentation.url }}</a>
-					{% endif %}
-					{% if speaker.Facebook %}
-						<a href="{{ speaker.Facebook }}" class="d-flex mb-2"><i class="icon-facebook"></i> {{ speaker.Facebook }}</a>
-					{% endif %}
-					{% if speaker.GitHub %}
-						<a href="{{ speaker.GitHub }}" class="d-flex mb-2"><i class="icon-github-circled"></i> {{ speaker.GitHub }}</a>
-					{% endif %}
-					{% if speaker.GooglePlus %}
-						<a href="{{ speaker.GooglePlus }}" class="d-flex mb-2"><i class="icon-gplus"></i> {{ speaker.GooglePlus }}</a>
-					{% endif %}
-					{% if speaker.Instagram %}
-						<a href="{{ speaker.Instagram }}" class="d-flex mb-2"><i class="icon-instagram"></i> {{ speaker.Instagram }}</a>
-					{% endif %}
-					{% if speaker.LinkedIn %}
-						<a href="{{ speaker.LinkedIn }}" class="d-flex mb-2"><i class="icon-linkedin"></i> {{ speaker.LinkedIn }}</a>
-					{% endif %}
-					{% if speaker.Pinterest %}
-						<a href="{{ speaker.Pinterest }}" class="d-flex mb-2"><i class="icon-pinterest"></i> {{ speaker.Pinterest }}</a>
-					{% endif %}
-					{% if speaker.Twitter %}
-						<a href="{{ speaker.Twitter }}" class="d-flex mb-2"><i class="icon-twitter"></i> {{ speaker.Twitter }}</a>
-					{% endif %}
-					{% if speaker.YouTube %}
-						<a href="{{ speaker.YouTube }}" class="d-flex mb-2"><i class="icon-youtube-play"></i> {{ speaker.YouTube }}</a>
-					{% endif %}
-					{% if speaker.InternetLink %}
-						<a href="{{ speaker.InternetLink }}" class="d-flex mb-2"><i class="icon-link-ext"></i> {{ speaker.InternetLink }}</a>
-					{% endif %}
+				<div class="col-lg-4 mb-5">
+					<div class="card w-100">
+						<div class="card-header">
+							<h3 class="text-center">Links</h3>
+							<hr class="hr-red">
+						</div>
+						<div class="card-body">
+							{% if speaker.Presentation %}
+								<a href="{{ speaker.Presentation.url }}" class="d-flex mb-2" target="_blank"><i class="icon-file-powerpoint"></i> {{ speaker.Presentation.url }}</a>
+							{% endif %}
+							{% if speaker.Facebook %}
+								<a href="{{ speaker.Facebook }}" class="d-flex mb-2" target="_blank"><i class="icon-facebook"></i> {{ speaker.Facebook }}</a>
+							{% endif %}
+							{% if speaker.GitHub %}
+								<a href="{{ speaker.GitHub }}" class="d-flex mb-2" target="_blank"><i class="icon-github-circled"></i> {{ speaker.GitHub }}</a>
+							{% endif %}
+							{% if speaker.GooglePlus %}
+								<a href="{{ speaker.GooglePlus }}" class="d-flex mb-2" target="_blank"><i class="icon-gplus"></i> {{ speaker.GooglePlus }}</a>
+							{% endif %}
+							{% if speaker.Instagram %}
+								<a href="{{ speaker.Instagram }}" class="d-flex mb-2" target="_blank"><i class="icon-instagram"></i> {{ speaker.Instagram }}</a>
+							{% endif %}
+							{% if speaker.LinkedIn %}
+								<a href="{{ speaker.LinkedIn }}" class="d-flex mb-2" target="_blank"><i class="icon-linkedin"></i> {{ speaker.LinkedIn }}</a>
+							{% endif %}
+							{% if speaker.Pinterest %}
+								<a href="{{ speaker.Pinterest }}" class="d-flex mb-2" target="_blank"><i class="icon-pinterest"></i> {{ speaker.Pinterest }}</a>
+							{% endif %}
+							{% if speaker.Reddit %}
+								<a href="{{ speaker.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ speaker.Reddit }}</a>
+							{% endif %}
+							{% if speaker.Twitter %}
+								<a href="{{ speaker.Twitter }}" class="d-flex mb-2" target="_blank"><i class="icon-twitter"></i> {{ speaker.Twitter }}</a>
+							{% endif %}
+							{% if speaker.YouTube %}
+								<a href="{{ speaker.YouTube }}" class="d-flex mb-2" target="_blank"><i class="icon-youtube-play"></i> {{ speaker.YouTube }}</a>
+							{% endif %}
+							{% if speaker.InternetLink %}
+								<a href="{{ speaker.InternetLink }}" class="d-flex mb-2" target="_blank"><i class="icon-link-ext"></i> {{ speaker.InternetLink }}</a>
+							{% endif %}
+						</div>
+					</div>
 				</div>
 			{% endif %}
 		</div>

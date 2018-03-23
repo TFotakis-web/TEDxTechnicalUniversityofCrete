@@ -1,0 +1,76 @@
+{% extends 'TEDx2018/base.html' %}
+{% block title %}{{ teamMember.FullName }} - {% endblock %}
+{% block body %}
+	<div class="navbar-placeholder"></div>
+	<div class="container-fluid h-100">
+		<div class="row justify-content-center align-items-center" style="height: 165px">
+			<div class="col-12">
+				<h1 class="text-center">{{ teamMember.FullName }}</h1>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="{% if teamMember.HasLinks %}col-lg-8{% else %}col{% endif %}">
+				<div class="card w-100">
+					{% if teamMember.Bio %}
+						<div class="card-header">
+							<h3 class="text-center">Bio</h3>
+							<hr class="hr-red">
+						</div>
+					{% endif %}
+					<div class="card-body">
+						<div class="text-center">
+							<img class="img-fluid mb-3 card-img-border" src="{{ teamMember.ProfileImage.url }}" alt="{{ teamMember.FullName }} profile image">
+						</div>
+						{% if teamMember.Bio %}
+							<p class="text-justify">{{ teamMember.Bio }}</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			{% if teamMember.HasLinks %}
+				<div class="col-lg-4 mb-5">
+					<div class="card w-100">
+						<div class="card-header">
+							<h3 class="text-center">Links</h3>
+							<hr class="hr-red">
+						</div>
+						<div class="card-body">
+							{% if teamMember.Facebook %}
+								<a href="{{ teamMember.Facebook }}" class="d-flex mb-2" target="_blank"><i class="icon-facebook"></i> {{ teamMember.Facebook }}</a>
+							{% endif %}
+							{% if teamMember.GitHub %}
+								<a href="{{ teamMember.GitHub }}" class="d-flex mb-2" target="_blank"><i class="icon-github-circled"></i> {{ teamMember.GitHub }}</a>
+							{% endif %}
+							{% if teamMember.GooglePlus %}
+								<a href="{{ teamMember.GooglePlus }}" class="d-flex mb-2" target="_blank"><i class="icon-gplus"></i> {{ teamMember.GooglePlus }}</a>
+							{% endif %}
+							{% if teamMember.Instagram %}
+								<a href="{{ teamMember.Instagram }}" class="d-flex mb-2" target="_blank"><i class="icon-instagram"></i> {{ teamMember.Instagram }}</a>
+							{% endif %}
+							{% if teamMember.LinkedIn %}
+								<a href="{{ teamMember.LinkedIn }}" class="d-flex mb-2" target="_blank"><i class="icon-linkedin"></i> {{ teamMember.LinkedIn }}</a>
+							{% endif %}
+							{% if teamMember.Pinterest %}
+								<a href="{{ teamMember.Pinterest }}" class="d-flex mb-2" target="_blank"><i class="icon-pinterest"></i> {{ teamMember.Pinterest }}</a>
+							{% endif %}
+							{% if teamMember.Reddit %}
+								<a href="{{ teamMember.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ teamMember.Reddit }}</a>
+							{% endif %}
+							{% if teamMember.Twitter %}
+								<a href="{{ teamMember.Twitter }}" class="d-flex mb-2" target="_blank"><i class="icon-twitter"></i> {{ teamMember.Twitter }}</a>
+							{% endif %}
+							{% if teamMember.YouTube %}
+								<a href="{{ teamMember.YouTube }}" class="d-flex mb-2" target="_blank"><i class="icon-youtube-play"></i> {{ teamMember.YouTube }}</a>
+							{% endif %}
+							{% if teamMember.InternetLink %}
+								<a href="{{ teamMember.InternetLink }}" class="d-flex mb-2" target="_blank"><i class="icon-link-ext"></i> {{ teamMember.InternetLink }}</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

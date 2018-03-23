@@ -1,9 +1,8 @@
-from datetime import datetime
 from random import shuffle
 
 from django.shortcuts import render
 
-from TEDx2018.models import Event, Speaker, AboutUsCarouselPhoto
+from TEDx2018.models import *
 
 
 def home(request):
@@ -71,11 +70,26 @@ def becomeADonor(request):
 	return render(request=request, template_name='TEDx2018/becomeADonor.html')
 
 
+def getTeamAndTeamMembers(event):
+	teams = event.team_set.order_by('Name')
+	teamsList = []
+	for team in teams:
+		teamMembersAssignment = list(TeamMemberAssignment.objects.filter(Team=team).only('TeamMember').order_by('TeamMember__Position', 'TeamMember__Name', 'TeamMember__Surname'))
+		teamsList.append({'Name': team.Name, 'Photo': team.Photo.url, 'TeamMembersAssignment': teamMembersAssignment})
+	return teamsList
+
+
 def about(request):
 	photos = list(AboutUsCarouselPhoto.objects.all())
 	shuffle(photos)
-	team = Event.objects.order_by('-StartDateTime').first().teammember_set.all().order_by('Name')
-	return render(request=request, template_name='TEDx2018/about.html', context={'photos': photos, 'team': team})
+	teams = getTeamAndTeamMembers(Event.objects.order_by('-StartDateTime').first())
+	return render(request=request, template_name='TEDx2018/about.html', context={'photos': photos, 'teams': teams})
+
+
+def teamMemberProfile(request, fullName):
+	name, surname = fullName.split('_')
+	teamMember = TeamMember.objects.filter(Name=name, Surname=surname).first()
+	return render(request=request, template_name='TEDx2018/teamMemberProfile.html', context={'teamMember': teamMember})
 
 
 def ourTeam(request):

@@ -44,7 +44,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'TEDx2018/css/style.css' %}"/>
 </head>
 <body>
-<nav class="navbar fixed-top navbar-expand-md navbar-light bg-white">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom">
 	<a class="navbar-brand" href="{% url 'TEDx2018:home' %}">
 		<img src="{% static 'TEDx2018/images/TEDxLogoBlack.svg' %}" alt="TEDxTechnicalUniversityofCrete Logo" height="50">
 	</a>
@@ -104,27 +104,21 @@
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item">
-				<a class="nav-link" href="https://www.facebook.com/tedxtuoc" target="_blank"><i class="icon-facebook"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://www.twitter.com/tedxtuoc" target="_blank"><i class="icon-twitter"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://www.linkedin.com/company/tedxtechnicaluniversityofcrete/" target="_blank"><i class="icon-linkedin"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="https://www.instagram.com/tedxtuoc/" target="_blank"><i class="icon-instagram"></i></a>
+			<li class="nav-item row justify-content-center border-top-lg">
+				<a class="nav-link navbar-social d-inline-block" href="https://www.facebook.com/tedxtuoc" target="_blank"><i class="icon-facebook"></i></a>
+				<a class="nav-link navbar-social d-inline-block" href="https://www.twitter.com/tedxtuoc" target="_blank"><i class="icon-twitter"></i></a>
+				<a class="nav-link navbar-social d-inline-block" href="https://www.linkedin.com/company/tedxtechnicaluniversityofcrete/" target="_blank"><i class="icon-linkedin"></i></a>
+				<a class="nav-link navbar-social d-inline-block" href="https://www.instagram.com/tedxtuoc/" target="_blank"><i class="icon-instagram"></i></a>
 			</li>
 		</ul>
 	</div>
 </nav>
 {% block body %}{% endblock %}
-<footer style="padding: 35px; border-top: 1px solid rgba(0,0,0,0.2);">
+<footer class="bg-white" style="padding: 35px; border-top: 1px solid rgba(0,0,0,0.2);">
 	<div class="container bg-white">
 		<p class="text-center m-0">
 			Copyright © 2018 <span class="tedx-red font-weight-bold">TEDx</span>TechnicalUniversityofCrete <span class="sep"> – </span>
-			This independent <span class="tedx-red font-weight-bold">TED<sup>x</sup></span> event is operated under license from <a href="http://ted.com/"><span class="tedx-red font-weight-bold">TED</span></a>.
+			This independent <span class="tedx-red font-weight-bold">TED<sup>x</sup></span> event is operated under license from <a href="http://ted.com/" target="_blank"><span class="tedx-red font-weight-bold">TED</span></a>.
 		</p>
 	</div>
 </footer>

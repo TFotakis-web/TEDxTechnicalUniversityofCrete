@@ -21,6 +21,7 @@ class Event(models.Model):
 	Instagram = models.CharField(max_length=100, blank=True)
 	LinkedIn = models.CharField(max_length=100, blank=True)
 	Pinterest = models.CharField(max_length=100, blank=True)
+	Reddit = models.CharField(max_length=100, blank=True)
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
 
@@ -74,6 +75,7 @@ class TeamMember(models.Model):
 	Instagram = models.CharField(max_length=100, blank=True)
 	LinkedIn = models.CharField(max_length=100, blank=True)
 	Pinterest = models.CharField(max_length=100, blank=True)
+	Reddit = models.CharField(max_length=100, blank=True)
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
 	InternetLink = models.CharField(max_length=100, blank=True)
@@ -91,6 +93,7 @@ class TeamMember(models.Model):
 class Team(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
+	Photo = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/TeamPhotos/')
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 
@@ -122,6 +125,7 @@ class Speaker(models.Model):
 	Instagram = models.CharField(max_length=100, blank=True)
 	LinkedIn = models.CharField(max_length=100, blank=True)
 	Pinterest = models.CharField(max_length=100, blank=True)
+	Reddit = models.CharField(max_length=100, blank=True)
 	Twitter = models.CharField(max_length=100, blank=True)
 	YouTube = models.CharField(max_length=100, blank=True)
 	InternetLink = models.CharField(max_length=100, blank=True)

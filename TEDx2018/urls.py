@@ -33,9 +33,9 @@ urlpatterns = [
 	path('community/donors/', views.donors, name='donors'),
 	path('community/donors/becomeADonor/', views.becomeADonor, name='becomeADonor'),
 	path('about/', views.about, name='about'),
-	path('about/<str:fullName>/', views.teamMemberProfile, name='teamMemberProfile'),
 	path('about/ourTeam/', views.ourTeam, name='ourTeam'),
 	path('about/contactUs/', views.contactUs, name='contactUs'),
 	path('about/becomeAVolunteer/', views.becomeAVolunteer, name='becomeAVolunteer'),
 	path('about/faq/', views.faq, name='faq'),
+	path('about/<str:fullName>/', views.teamMemberProfile, name='teamMemberProfile'),
 ]

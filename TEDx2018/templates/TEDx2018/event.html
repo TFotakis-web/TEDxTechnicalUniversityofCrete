@@ -254,18 +254,16 @@
 		<div class="container-fluid mb-5">
 			{% for team in teams %}
 				<div class="mb-5">
-					<div class="row">
-						<div class="container">
-							<div class="card m-3 w-100">
-								<div class="card-header border-0">
-									<h2 class="card-title my-3 text-center font-weight-bold">{{ team.PhotoDescription }}</h2>
-									<div class="container">
-										<hr class="hr-red">
-									</div>
+					<div class="container mb-3">
+						<div class="card w-100">
+							<div class="card-header border-0">
+								<h2 class="card-title my-3 text-center font-weight-bold">{{ team.PhotoDescription }}</h2>
+								<div class="container">
+									<hr class="hr-red">
 								</div>
-								<div class="card-body">
-									<img class="card-img-top" src="{{ team.Photo }}" alt="">
-								</div>
+							</div>
+							<div class="card-body">
+								<img class="card-img-top" src="{{ team.Photo }}" alt="{{ team.PhotoDescription }} Photo">
 							</div>
 						</div>
 					</div>

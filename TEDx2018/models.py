@@ -10,11 +10,13 @@ class Event(models.Model):
 	GoogleCalendarLink = models.TextField(blank=True)
 	StartDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EndDateTime = models.DateTimeField(default=None, blank=True, null=True)
+	IsOnGoing = models.BooleanField(default=False, blank=True)
 	CarouselImage = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
 	Logo = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
 	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	Description = models.TextField(blank=True)
 	TicketsAvailable = models.BooleanField(default=False)
+	ScheduleAnnounced = models.BooleanField(default=False)
 	Eventbrite = models.CharField(max_length=100, blank=True, default='#')
 	Facebook = models.CharField(max_length=100, blank=True)
 	GitHub = models.CharField(max_length=100, blank=True)
@@ -115,6 +117,13 @@ class TeamMemberAssignment(models.Model):
 	def __str__(self): return str(self.TeamMember) + ' - ' + str(self.Team) + ' - ' + self.Event.Name
 
 
+class Session(models.Model):
+	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
+	Name = models.CharField(max_length=100)
+
+	def __str__(self): return self.Name + ' - ' + self.Event.Name
+
+
 class Speaker(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
@@ -125,6 +134,9 @@ class Speaker(models.Model):
 	Title = models.CharField(max_length=100, blank=True)
 	Bio = models.TextField(blank=True)
 	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
+	Session = models.ForeignKey(Session, default=1, null=True, on_delete=models.SET_NULL)
+	TalkTime = models.TimeField(default=None, blank=True, null=True)
+	HasSpoken = models.BooleanField(default=False, blank=True)
 	Presentation = models.FileField(blank=True, upload_to='TEDx2018/SpeakerPresentations/')
 	PresentationReleaseDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	PresentationRelease = models.BooleanField(default=False)

@@ -191,6 +191,57 @@
 			</div>
 		</div>
 
+		{# Schedule #}
+		{% if event.ScheculeAnnounced %}
+			<div class="container h-100">
+				<div class="row justify-content-center align-items-center" style="height: 200px">
+					<div class="col">
+						<h1 class="text-center ">Schedule</h1>
+						<hr class="hr-black">
+					</div>
+				</div>
+			</div>
+			<div class="container mb-5">
+				<div class="card w-100">
+					<div class="card-header">
+						<h2 class="text-center">Schedule</h2>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table text-center">
+								{% for session in event.session_set.all %}
+									<thead class="thead-dark">
+									<tr>
+										<th scope="col">Time</th>
+										<th scope="col">{{ session.Name }}</th>
+										{% if event.IsOnGoing %}
+											<th scope="col">Has spoken</th>
+										{% endif %}
+									</tr>
+									</thead>
+									<tbody>
+									{% for speaker in session.speaker_set.all %}
+										<tr>
+											<th>{{ speaker.TalkTime|date:"G:i" }}</th>
+											<td align="center">{{ speaker.FullName }}</td>
+											{% if event.IsOnGoing %}
+												<td class="text-success">
+													{% if speaker.HasSpoken %}
+														&#x2714;
+													{% endif %}
+												</td>
+											{% endif %}
+										</tr>
+									{% endfor %}
+									</tbody>
+								{% endfor %}
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
 		{# Team #}
 		<div class="container h-100">
 			<div class="row justify-content-center align-items-center" style="height: 200px">

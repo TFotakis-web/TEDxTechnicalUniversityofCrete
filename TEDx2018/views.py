@@ -24,11 +24,13 @@ def currentEvent(request):
 
 
 def upcomingEvents(request):
-	return render(request=request, template_name='TEDx2018/404.html')
+	events = Event.objects.filter(EndDateTime__gte=datetime.now().astimezone()).order_by('-StartDateTime')
+	return render(request=request, template_name='TEDx2018/eventsListView.html', context={'events': events, 'eventType': 'Upcoming'})
 
 
 def previousEvents(request):
-	return render(request=request, template_name='TEDx2018/404.html')
+	events = Event.objects.filter(EndDateTime__lte=datetime.now().astimezone()).order_by('-StartDateTime')
+	return render(request=request, template_name='TEDx2018/eventsListView.html', context={'events': events, 'eventType': 'Previous'})
 
 
 def event(request, eventName):

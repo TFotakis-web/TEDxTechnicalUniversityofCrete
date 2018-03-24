@@ -7,14 +7,15 @@ class Event(models.Model):
 	Name = models.CharField(max_length=100)
 	Location = models.CharField(max_length=200, blank=True)
 	GoogleMapsLink = models.CharField(max_length=200, blank=True)
+	GoogleCalendarLink = models.TextField(blank=True)
 	StartDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	EndDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	EventImage = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
+	CarouselImage = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
+	Logo = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/EventPictures/')
 	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
-	EventDescription = models.TextField(blank=True)
-	TicketsNumber = models.IntegerField(default=0, blank=True)
-	SoldOut = models.BooleanField(default=False, blank=True)
-	Eventbrite = models.CharField(max_length=100, blank=True)
+	Description = models.TextField(blank=True)
+	TicketsAvailable = models.BooleanField(default=False)
+	Eventbrite = models.CharField(max_length=100, blank=True, default='#')
 	Facebook = models.CharField(max_length=100, blank=True)
 	GitHub = models.CharField(max_length=100, blank=True)
 	GooglePlus = models.CharField(max_length=100, blank=True)
@@ -29,7 +30,9 @@ class Event(models.Model):
 	def Announced(self):
 		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
-	# return True
+	@property
+	def Past(self):
+		return True if self.EndDateTime is None else self.EndDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
 	@property
 	def HasLinks(self):
@@ -39,6 +42,10 @@ class Event(models.Model):
 	def HasTalkLinks(self):
 		return self.speaker_set.exclude(TalkYouTubeLink='').count()
 
+	@property
+	def url(self):
+		return self.Name.replace(' ', '_')
+
 	def __str__(self): return self.Name
 
 
@@ -46,6 +53,7 @@ class Ticket(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
 	Price = models.FloatField(default=0)
+	Available = models.BooleanField(default=True)
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 
@@ -94,6 +102,7 @@ class Team(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
 	Photo = models.ImageField(default='TEDx2018/Shared/XBlackBig.svg', blank=True, upload_to='TEDx2018/TeamPhotos/')
+	PhotoDescription = models.CharField(blank=True, max_length=100)
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 

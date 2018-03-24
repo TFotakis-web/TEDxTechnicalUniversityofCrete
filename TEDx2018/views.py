@@ -5,8 +5,16 @@ from django.shortcuts import render
 from TEDx2018.models import *
 
 
+def getTeamAndTeamMembers(event):
+	teams = event.team_set.order_by('Name')
+	teamsList = []
+	for team in teams:
+		teamMembersAssignment = list(TeamMemberAssignment.objects.filter(Team=team).only('TeamMember').order_by('TeamMember__Position', 'TeamMember__Name', 'TeamMember__Surname'))
+		teamsList.append({'Name': team.Name, 'Photo': team.Photo.url, 'PhotoDescription': team.PhotoDescription, 'TeamMembersAssignment': teamMembersAssignment})
+	return teamsList
+
+
 def home(request):
-	# events = Event.objects.filter(StartDateTime__lte=datetime.now()).order_by('-StartDateTime')
 	events = Event.objects.order_by('-StartDateTime')
 	return render(request=request, template_name='TEDx2018/home.html', context={'events': events})
 
@@ -26,7 +34,8 @@ def previousEvents(request):
 def event(request, eventName):
 	eventName = eventName.replace('_', ' ')
 	event = Event.objects.filter(Name=eventName).first()
-	return render(request=request, template_name='TEDx2018/event.html', context={'event': event})
+	teams = getTeamAndTeamMembers(event)
+	return render(request=request, template_name='TEDx2018/event.html', context={'event': event, 'teams': teams})
 
 
 def talks(request):
@@ -74,15 +83,6 @@ def donors(request):
 
 def becomeADonor(request):
 	return render(request=request, template_name='TEDx2018/becomeADonor.html')
-
-
-def getTeamAndTeamMembers(event):
-	teams = event.team_set.order_by('Name')
-	teamsList = []
-	for team in teams:
-		teamMembersAssignment = list(TeamMemberAssignment.objects.filter(Team=team).only('TeamMember').order_by('TeamMember__Position', 'TeamMember__Name', 'TeamMember__Surname'))
-		teamsList.append({'Name': team.Name, 'Photo': team.Photo.url, 'TeamMembersAssignment': teamMembersAssignment})
-	return teamsList
 
 
 def about(request):

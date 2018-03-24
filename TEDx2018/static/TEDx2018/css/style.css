@@ -38,18 +38,12 @@ body {
 	background: #f4f4f4;
 }
 
-.card {
-	margin: 0 auto;
-	float: none;
-	margin-bottom: 10px;
-}
-
 .hr-red {
-	border-top: 2px solid #e62b1e;
+	border-top: 1px solid #e62b1e;
 }
 
 .hr-black {
-	border-top: 2px solid rgba(0, 0, 0, 0.1);
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .hr-white {
@@ -76,8 +70,11 @@ body {
 }
 
 .card {
+	margin: 0 auto;
+	float: none;
+	margin-bottom: 10px;
 	width: 20rem;
-	border: 0;
+	border-color: white;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
 	transition: .2s;
 	transition-timing-function: cubic-bezier(0, 0.6, 0.6, 1);

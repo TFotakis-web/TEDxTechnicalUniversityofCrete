@@ -1,6 +1,7 @@
 {% extends 'TEDx2018/base.html' %}
 {% block title %}{% endblock %}
 {% block body %}
+	{% load static %}
 	<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
 			{% for event in events %}
@@ -10,24 +11,32 @@
 		<div class="carousel-inner">
 			{% for event in events %}
 				<div class="carousel-item {% if forloop.first %}active{% endif %}">
-					{% if event.EventImage %}
-						<div class="full-screen-carousel-img{% if not event.Announced %} carousel-blur{% endif %}"
-						     style="background-image: url({{ event.EventImage.url }});">
-						</div>
+					{% if event.Announced %}
+						<a href="{% url 'TEDx2018:event' event.url %}">
+							<div class="full-screen-carousel-img"
+							     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
+							</div>
+						</a>
 					{% else %}
 						<div class="full-screen-carousel-img carousel-blur"
-						     style="background-image: url('/media/TEDx2018/Shared/XBlackBig.svg');">
+						     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
 						</div>
 					{% endif %}
-					<div class="carousel-caption d-block">
+					<div class="carousel-caption d-block mb-5">
 						{% if event.Announced %}
-							<h5>{{ event.Name }}</h5>
-							<p>{{ event.StartDateTime }}</p>
+							<a href="{% url 'TEDx2018:event' event.url %}" class="text-white">
+								<h5>{{ event.Name }}</h5>
+							</a>
+							<p>{{ event.StartDateTime|date:"l j F Y" }}</p>
+							{% if not event.Past %}
+								<hr class="hr-white">
+								<h5>{{ event.StartDateTime|date:"G:i" }}</h5>
+							{% endif %}
 						{% else %}
 							<h5>Upcoming Event</h5>
 							<hr class="my-4 hr-white">
 							<h6>Announcement Date</h6>
-							<p>{{ event.AnnouncementDateTime }}</p>
+							<p>{{ event.AnnouncementDateTime|date:"l j F Y" }}</p>
 						{% endif %}
 					</div>
 				</div>

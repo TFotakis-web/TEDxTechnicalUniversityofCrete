@@ -1,12 +1,13 @@
 {% extends 'TEDx2018/base.html' %}
 {% block title %}{{ event.Name }} - {% endblock %}
 {% block body %}
+	{% load static %}
 	{#	<div id="carouselIndicators" class="carousel slide" data-ride="carousel">#}
 	{#		<div class="carousel-inner">#}
 	{#			<div class="carousel-item active">#}
-	{% if event.EventImage %}
+	{% if event.CarouselImage %}
 		<div class="full-screen-carousel-img{% if not event.Announced %} carousel-blur{% endif %}"
-		     style="background-image: url({{ event.EventImage.url }});">
+		     style="background-image: url({{ event.CarouselImage.url }});">
 		</div>
 	{% else %}
 		<div class="full-screen-carousel-img carousel-blur"
@@ -28,6 +29,270 @@
 	{#		</div>#}
 	{#	</div>#}
 	{% if event.Announced %}
+		{# Event #}
+		<div class="container h-100">
+			<div class="row justify-content-center align-items-center" style="height: 200px">
+				<div class="col">
+					<h1 class="text-center ">Event</h1>
+					<hr class="hr-black">
+				</div>
+			</div>
+		</div>
+		<div class="container my-5">
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<div class="card w-100">
+						<div class="card-body">
+							<img src="{{ event.Logo.url }}" alt="Event logo" class="img-fluid card-img">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 text-justify">
+					<div class="card w-100">
+						<div class="card-header">
+							<h3 class="card-text text-center">{{ event.Name }}</h3>
+						</div>
+						<div class="card-body">
+							<p>{{ event.Description }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		{# When - Where #}
+		<div class="container mb-5">
+			<div class="row justify-content-center">
+				<div class="card">
+					<a class="text-dark" href="{{ event.GoogleCalendarLink }}" target="_blank">
+						<div class="card-header">
+							<h1 class="card-text text-center">When <span class="icon-calendar-empty"></span></h1>
+						</div>
+						<div class="card-body text-center">
+							{# Formating info on https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date #}
+							<h3 class="mt-5">{{ event.StartDateTime|date:"l" }}</h3>
+							<h1>{{ event.StartDateTime|date:"j F Y" }}</h1>
+							<hr class="hr-red">
+							<h4 class="mb-5">{{ event.StartDateTime|date:"G:i" }}</h4>
+						</div>
+					</a>
+				</div>
+				<a href="{{ event.GoogleMapsLink }}" target="_blank">
+					<div class="card">
+						<a class="text-dark" href="{{ event.GoogleMapsLink }}" target="_blank">
+							<div class="card-header">
+								<h1 class="card-text text-center">Where <span class="icon-location"></span></h1>
+							</div>
+							<div class="card-body text-center">
+								<h2 class="my-5">{{ event.Location }}</h2>
+							</div>
+						</a>
+					</div>
+				</a>
+			</div>
+		</div>
+
+		{# Tickets #}
+		<div class="container h-100">
+			<div class="row justify-content-center align-items-center" style="height: 200px">
+				<div class="col">
+					<h1 class="text-center ">Tickets</h1>
+					<hr class="hr-black">
+				</div>
+			</div>
+		</div>
+		<div class="container mb-5">
+			<div class="row justify-content-center">
+				{% for ticket in event.ticket_set.all %}
+					<div class="card {% if ticket.Available %}border-success{% else %}border-danger{% endif %}">
+						{% if ticket.Available %}<a class="text-dark" href="{{ event.Eventbrite }}" target="_blank">{% endif %}
+						<div class="card-header {% if ticket.Available %}border-success{% else %}border-danger{% endif %}">
+							<h3 class="card-text text-center">{{ ticket.Name }}</h3>
+						</div>
+						<div class="card-body text-center">
+							<h1 class="my-5">{{ ticket.Price }}€</h1>
+							{% if ticket.Available %}
+								<div class="btn btn-success">Available</div>
+							{% else %}
+								<div class="btn btn-danger">Sold Out</div>
+							{% endif %}
+						</div>
+						{% if ticket.Available %}</a>{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		{# Speakers #}
+		<div class="container h-100">
+			<div class="row justify-content-center align-items-center" style="height: 200px">
+				<div class="col">
+					<h1 class="text-center ">Speakers</h1>
+					<hr class="hr-black">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid mb-5">
+			<div class="row justify-content-center">
+				{% for speaker in event.speaker_set.all %}
+					{% if speaker.Announced %}
+						<div class="card m-3">
+							<div class="card-header p-0">
+								<a href="{{ speaker.Name }}_{{ speaker.Surname }}/"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt=""></a>
+							</div>
+							<div class="card-body">
+								<a href="{{ speaker.Name }}_{{ speaker.Surname }}/">
+									<h5 class="card-title font-weight-bold">{{ speaker.FullName }}</h5>
+								</a>
+								<p class="card-text font-weight-light">{{ speaker.Title }}</p>
+							</div>
+							{% if speaker.HasLinks %}
+								<div class="card-footer">
+									<div class="row justify-content-center">
+										{% if speaker.Presentation %}
+											<a href="{{ speaker.Presentation.url }}" class="card-link mb-2" target="_blank"><i class="icon-file-powerpoint"></i></a>
+										{% endif %}
+										{% if speaker.Facebook %}
+											<a href="{{ speaker.Facebook }}" class="card-link mb-2" target="_blank"><i class="icon-facebook"></i></a>
+										{% endif %}
+										{% if speaker.GitHub %}
+											<a href="{{ speaker.GitHub }}" class="card-link mb-2" target="_blank"><i class="icon-github-circled"></i></a>
+										{% endif %}
+										{% if speaker.GooglePlus %}
+											<a href="{{ speaker.GooglePlus }}" class="card-link mb-2" target="_blank"><i class="icon-gplus"></i></a>
+										{% endif %}
+										{% if speaker.Instagram %}
+											<a href="{{ speaker.Instagram }}" class="card-link mb-2" target="_blank"><i class="icon-instagram"></i></a>
+										{% endif %}
+										{% if speaker.LinkedIn %}
+											<a href="{{ speaker.LinkedIn }}" class="card-link mb-2" target="_blank"><i class="icon-linkedin"></i></a>
+										{% endif %}
+										{% if speaker.Pinterest %}
+											<a href="{{ speaker.Pinterest }}" class="card-link mb-2" target="_blank"><i class="icon-pinterest"></i></a>
+										{% endif %}
+										{% if speaker.Reddit %}
+											<a href="{{ speaker.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ speaker.Reddit }}</a>
+										{% endif %}
+										{% if speaker.Twitter %}
+											<a href="{{ speaker.Twitter }}" class="card-link mb-2" target="_blank"><i class="icon-twitter"></i></a>
+										{% endif %}
+										{% if speaker.YouTube %}
+											<a href="{{ speaker.YouTube }}" class="card-link mb-2" target="_blank"><i class="icon-youtube-play"></i></a>
+										{% endif %}
+										{% if speaker.InternetLink %}
+											<a href="{{ speaker.InternetLink }}" class="card-link mb-2" target="_blank"><i class="icon-link-ext"></i></a>
+										{% endif %}
+									</div>
+								</div>
+							{% endif %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+
+		{# Team #}
+		<div class="container h-100">
+			<div class="row justify-content-center align-items-center" style="height: 200px">
+				<div class="col">
+					<h1 class="text-center ">Team</h1>
+					<hr class="hr-black">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid mb-5">
+			{% for team in teams %}
+				<div class="mb-5">
+					<div class="row">
+						<div class="container">
+							<div class="card m-3 w-100">
+								<div class="card-header border-0">
+									<h2 class="card-title my-3 text-center font-weight-bold">{{ team.PhotoDescription }}</h2>
+									<div class="container">
+										<hr class="hr-red">
+									</div>
+								</div>
+								<div class="card-body">
+									<img class="card-img-top" src="{{ team.Photo }}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						{% for teamMemberAssignment in team.TeamMembersAssignment %}
+							<div class="card m-3">
+								<div class="card-header p-0">
+									<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/"><img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt=""></a>
+								</div>
+								<div class="card-body">
+									<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/">
+										<h5 class="card-title font-weight-bold">{{ teamMemberAssignment.TeamMember.FullName }}</h5>
+									</a>
+									<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>
+								</div>
+								{% if teamMemberAssignment.TeamMember.HasLinks %}
+									<div class="card-footer">
+										<div class="row justify-content-center">
+											{% if teamMemberAssignment.TeamMember.Facebook %}
+												<a href="{{ teamMemberAssignment.TeamMember.Facebook }}" class="card-link mb-2" target="_blank"><i class="icon-facebook"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.GitHub %}
+												<a href="{{ teamMemberAssignment.TeamMember.GitHub }}" class="card-link mb-2" target="_blank"><i class="icon-github-circled"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.GooglePlus %}
+												<a href="{{ teamMemberAssignment.TeamMember.GooglePlus }}" class="card-link mb-2" target="_blank"><i class="icon-gplus"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.Instagram %}
+												<a href="{{ teamMemberAssignment.TeamMember.Instagram }}" class="card-link mb-2" target="_blank"><i class="icon-instagram"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.LinkedIn %}
+												<a href="{{ teamMemberAssignment.TeamMember.LinkedIn }}" class="card-link mb-2" target="_blank"><i class="icon-linkedin"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.Pinterest %}
+												<a href="{{ teamMemberAssignment.TeamMember.Pinterest }}" class="card-link mb-2" target="_blank"><i class="icon-pinterest"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.Reddit %}
+												<a href="{{ teamMemberAssignment.TeamMember.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ teamMemberAssignment.TeamMember.Reddit }}</a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.Twitter %}
+												<a href="{{ teamMemberAssignment.TeamMember.Twitter }}" class="card-link mb-2" target="_blank"><i class="icon-twitter"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.YouTube %}
+												<a href="{{ teamMemberAssignment.TeamMember.YouTube }}" class="card-link mb-2" target="_blank"><i class="icon-youtube-play"></i></a>
+											{% endif %}
+											{% if teamMemberAssignment.TeamMember.InternetLink %}
+												<a href="{{ teamMemberAssignment.TeamMember.InternetLink }}" class="card-link mb-2" target="_blank"><i class="icon-link-ext"></i></a>
+											{% endif %}
+										</div>
+									</div>
+								{% endif %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		{# Technical University of Crete #}
+		<div class="container h-100 mb-5">
+			<div class="row justify-content-center align-items-center">
+				<div class="col">
+					<h3 class="text-center ">
+						Under the auspices of
+						{#						<a href="https://www.tuc.gr/" target="_blank" style="color: black">#}
+						{#							Technical University of Crete#}
+						{#						</a>#}
+					</h3>
+					<hr class="hr-black">
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<a href="https://www.tuc.gr/" target="_blank">
+								<img src="{% static 'TEDx2018/images/TechnicalUniversityofCreteLogo.png' %}" alt="Technical University of Crete logo" class="img-fluid">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	{% endif %}
 {% endblock %}

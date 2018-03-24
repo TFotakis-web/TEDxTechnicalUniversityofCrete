@@ -97,6 +97,10 @@ class TeamMember(models.Model):
 	def HasLinks(self):
 		return bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube) | bool(self.InternetLink)
 
+	@property
+	def url(self):
+		return self.Name + '_' + self.Surname
+
 	def __str__(self): return self.FullName
 
 
@@ -161,11 +165,13 @@ class Speaker(models.Model):
 	def Announced(self):
 		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
 
-	# return True
-
 	@property
 	def HasLinks(self):
 		return bool(self.Presentation) | bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube) | bool(self.InternetLink)
+
+	@property
+	def url(self):
+		return self.Name + '_' + self.Surname
 
 	def __str__(self): return self.FullName + ' - ' + self.Event.Name
 

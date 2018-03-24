@@ -93,15 +93,15 @@
 				<div class="row justify-content-center">
 					{% for teamMemberAssignment in team.TeamMembersAssignment %}
 						<div class="card m-3">
-							<div class="card-header p-0">
-								<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/"><img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt=""></a>
-							</div>
-							<div class="card-body">
-								<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/">
+							<a class="text-dark" href="{% url 'TEDx2018:teamMemberProfile' teamMemberAssignment.TeamMember.url %}">
+								<div class="card-header p-0">
+									<img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt="">
+								</div>
+								<div class="card-body">
 									<h5 class="card-title font-weight-bold">{{ teamMemberAssignment.TeamMember.FullName }}</h5>
-								</a>
-								<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>
-							</div>
+									<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>
+								</div>
+							</a>
 							{% if teamMemberAssignment.TeamMember.HasLinks %}
 								<div class="card-footer">
 									<div class="row justify-content-center">
@@ -144,76 +144,4 @@
 			</div>
 		{% endfor %}
 	</div>
-	{#	<div class="container-fluid mb-5">#}
-	{#		{% for team in teams %}#}
-	{#			<div class="mb-5">#}
-	{#				<div class="row">#}
-	{#					<div class="container">#}
-	{#						<div class="card m-3 w-100">#}
-	{#							<div class="card-header border-0">#}
-	{#								<h2 class="card-title my-3 text-center font-weight-bold">{{ team.PhotoDescription }}</h2>#}
-	{#								<div class="container">#}
-	{#									<hr class="hr-red">#}
-	{#								</div>#}
-	{#							</div>#}
-	{#							<div class="card-body">#}
-	{#								<img class="card-img-top" src="{{ team.Photo }}" alt="">#}
-	{#							</div>#}
-	{#						</div>#}
-	{#					</div>#}
-	{#				</div>#}
-	{#				<div class="row justify-content-center">#}
-	{#					{% for teamMemberAssignment in team.TeamMembersAssignment %}#}
-	{#						<div class="card m-3">#}
-	{#							<div class="card-header p-0">#}
-	{#								<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/"><img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt=""></a>#}
-	{#							</div>#}
-	{#							<div class="card-body">#}
-	{#								<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/">#}
-	{#									<h5 class="card-title font-weight-bold">{{ teamMemberAssignment.TeamMember.FullName }}</h5>#}
-	{#								</a>#}
-	{#								<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>#}
-	{#							</div>#}
-	{#							{% if teamMemberAssignment.TeamMember.HasLinks %}#}
-	{#								<div class="card-footer">#}
-	{#									<div class="row justify-content-center">#}
-	{#										{% if teamMemberAssignment.TeamMember.Facebook %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.Facebook }}" class="card-link mb-2" target="_blank"><i class="icon-facebook"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.GitHub %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.GitHub }}" class="card-link mb-2" target="_blank"><i class="icon-github-circled"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.GooglePlus %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.GooglePlus }}" class="card-link mb-2" target="_blank"><i class="icon-gplus"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.Instagram %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.Instagram }}" class="card-link mb-2" target="_blank"><i class="icon-instagram"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.LinkedIn %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.LinkedIn }}" class="card-link mb-2" target="_blank"><i class="icon-linkedin"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.Pinterest %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.Pinterest }}" class="card-link mb-2" target="_blank"><i class="icon-pinterest"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.Reddit %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ teamMemberAssignment.TeamMember.Reddit }}</a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.Twitter %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.Twitter }}" class="card-link mb-2" target="_blank"><i class="icon-twitter"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.YouTube %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.YouTube }}" class="card-link mb-2" target="_blank"><i class="icon-youtube-play"></i></a>#}
-	{#										{% endif %}#}
-	{#										{% if teamMemberAssignment.TeamMember.InternetLink %}#}
-	{#											<a href="{{ teamMemberAssignment.TeamMember.InternetLink }}" class="card-link mb-2" target="_blank"><i class="icon-link-ext"></i></a>#}
-	{#										{% endif %}#}
-	{#									</div>#}
-	{#								</div>#}
-	{#							{% endif %}#}
-	{#						</div>#}
-	{#					{% endfor %}#}
-	{#				</div>#}
-	{#			</div>#}
-	{#		{% endfor %}#}
-	{#	</div>#}
 {% endblock %}

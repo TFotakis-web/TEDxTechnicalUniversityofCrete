@@ -270,15 +270,15 @@
 					<div class="row justify-content-center">
 						{% for teamMemberAssignment in team.TeamMembersAssignment %}
 							<div class="card m-3">
-								<div class="card-header p-0">
-									<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/"><img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt=""></a>
-								</div>
-								<div class="card-body">
-									<a href="{{ teamMemberAssignment.TeamMember.Name }}_{{ teamMemberAssignment.TeamMember.Surname }}/">
+								<a class="text-dark" href="{% url 'TEDx2018:teamMemberProfile' teamMemberAssignment.TeamMember.url %}">
+									<div class="card-header p-0">
+										<img class="card-img-top" src="{{ teamMemberAssignment.TeamMember.ProfileImage.url }}" alt="">
+									</div>
+									<div class="card-body">
 										<h5 class="card-title font-weight-bold">{{ teamMemberAssignment.TeamMember.FullName }}</h5>
-									</a>
-									<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>
-								</div>
+										<p class="card-text font-weight-light">{{ teamMemberAssignment.TeamMember.Position.Name }}</p>
+									</div>
+								</a>
 								{% if teamMemberAssignment.TeamMember.HasLinks %}
 									<div class="card-footer">
 										<div class="row justify-content-center">

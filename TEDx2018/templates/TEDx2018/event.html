@@ -138,10 +138,10 @@
 					{% if speaker.Announced %}
 						<div class="card m-3">
 							<div class="card-header p-0">
-								<a href="{{ speaker.Name }}_{{ speaker.Surname }}/"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt=""></a>
+								<a href="{% url 'TEDx2018:speakerProfile' speaker.url %}"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt=""></a>
 							</div>
 							<div class="card-body">
-								<a href="{{ speaker.Name }}_{{ speaker.Surname }}/">
+								<a href="{% url 'TEDx2018:speakerProfile' speaker.url %}">
 									<h5 class="card-title font-weight-bold">{{ speaker.FullName }}</h5>
 								</a>
 								<p class="card-text font-weight-light">{{ speaker.Title }}</p>

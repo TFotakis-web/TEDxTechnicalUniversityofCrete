@@ -38,4 +38,5 @@ urlpatterns = [
 	path('about/becomeAVolunteer/', views.becomeAVolunteer, name='becomeAVolunteer'),
 	path('about/faq/', views.faq, name='faq'),
 	path('about/<str:fullName>/', views.teamMemberProfile, name='teamMemberProfile'),
+	path('google21f2e05779fa0f76.html', views.googleConfirmation, name='googleConfirmation'),
 ]

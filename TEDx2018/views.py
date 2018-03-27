@@ -132,3 +132,7 @@ def custom_404(request):
 
 def custom_500(request):
 	return render(request=request, template_name='TEDx2018/500.html')
+
+
+def googleConfirmation(request):
+	return render(request=request, template_name='TEDx2018/google21f2e05779fa0f76.html')

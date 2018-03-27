@@ -37,6 +37,7 @@ body {
 .navbar-placeholder {
 	height: 60px;
 	background: #fafafa;
+	margin-bottom: 20px;
 }
 
 .hr-red {

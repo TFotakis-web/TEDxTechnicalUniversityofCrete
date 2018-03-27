@@ -61,9 +61,14 @@ def partners(request):
 	eventstmp = Event.objects.exclude(AnnouncementDateTime__gt=datetime.now().astimezone()).order_by('-StartDateTime')
 	for event in eventstmp:
 		partnersList = []
+		hasPartners = False
 		for partnerLevel in event.partnerlevel_set.all().order_by('Level'):
-			partnersList.append({'Name': partnerLevel.Name, 'partners': event.partner_set.filter(PartnerLevel=partnerLevel)})
-		events.append({'Name': event.Name, 'partnerLevels': partnersList})
+			partners = list(event.partner_set.filter(PartnerLevel=partnerLevel))
+			if len(partners):
+				partnersList.append({'Name': partnerLevel.Name, 'partners': partners})
+				hasPartners = True
+		if hasPartners:
+			events.append({'Name': event.Name, 'partnerLevels': partnersList})
 	return render(request=request, template_name='TEDx2018/partners.html', context={'events': events})
 
 

@@ -22,8 +22,8 @@ from django.urls import path, include
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('2017/', include(('TEDx2017.urls', 'TEDx2017'), namespace='TEDx2017')),
-	path('developmentTestbench/', include(('TEDx2018.urls', 'TEDx2018'), namespace='TEDx2018')),
-	path('', include(('ComingSoon.urls', 'ComingSoon'), namespace='ComingSoon')),
+	path('', include(('TEDx2018.urls', 'TEDx2018'), namespace='TEDx2018')),
+	# path('', include(('ComingSoon.urls', 'ComingSoon'), namespace='ComingSoon')),
 ]
 if settings.DEBUG:
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

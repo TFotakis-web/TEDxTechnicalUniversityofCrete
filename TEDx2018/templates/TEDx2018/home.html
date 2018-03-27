@@ -2,7 +2,7 @@
 {% block title %}{% endblock %}
 {% block body %}
 	{% load static %}
-	<div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+	<div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">
 			{% for event in events %}
 				<li data-target="#carouselIndicators" data-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
@@ -11,34 +11,56 @@
 		<div class="carousel-inner">
 			{% for event in events %}
 				<div class="carousel-item {% if forloop.first %}active{% endif %}">
-					{% if event.Announced %}
-						<a href="{% url 'TEDx2018:event' event.url %}">
-							<div class="full-screen-carousel-img"
-							     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
-							</div>
-						</a>
-					{% else %}
-						<div class="full-screen-carousel-img carousel-blur"
-						     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
-						</div>
-					{% endif %}
-					<div class="carousel-caption d-block mb-5">
-						{% if event.Announced %}
+					{% if forloop.first %}
+						{#						<div class="embed-responsive embed-responsive-16by9 ">#}
+						<iframe class="embed-responsive-item"
+						        style="height: 100vh"
+						        src="https://www.youtube.com/embed/sFX_uA2cldQ?autoplay=1&loop=1&playlist=sFX_uA2cldQ"
+						        frameborder="0"
+						        allow="autoplay; encrypted-media"
+						        allowfullscreen
+						        width="100%"
+						        height="100vh">
+						</iframe>
+						{#						</div>#}
+						<div class="carousel-caption d-block mb-5">
 							<a href="{% url 'TEDx2018:event' event.url %}" class="text-white">
 								<h5>{{ event.Name }}</h5>
 							</a>
 							<p>{{ event.StartDateTime|date:"l j F Y" }}</p>
-							{% if not event.Past %}
-								<hr class="hr-white">
-								<h5>{{ event.StartDateTime|date:"G:i" }}</h5>
-							{% endif %}
+							<hr class="hr-white">
+							<h5>{{ event.StartDateTime|date:"G:i" }}</h5>
+						</div>
+					{% else %}
+						{% if event.Announced %}
+							<a href="{% url 'TEDx2018:event' event.url %}">
+								<div class="full-screen-carousel-img"
+								     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
+								</div>
+							</a>
 						{% else %}
-							<h5>Upcoming Event</h5>
-							<hr class="my-4 hr-white">
-							<h6>Announcement Date</h6>
-							<p>{{ event.AnnouncementDateTime|date:"l j F Y" }}</p>
+							<div class="full-screen-carousel-img carousel-blur"
+							     style="background-image: url({% if event.CarouselImage %}{{ event.CarouselImage.url }}{% else %}{% static 'TEDx2018/images/XBlackBig.svg' %}{% endif %});">
+							</div>
 						{% endif %}
-					</div>
+						<div class="carousel-caption d-block mb-5">
+							{% if event.Announced %}
+								<a href="{% url 'TEDx2018:event' event.url %}" class="text-white">
+									<h5>{{ event.Name }}</h5>
+								</a>
+								<p>{{ event.StartDateTime|date:"l j F Y" }}</p>
+								{% if not event.Past %}
+									<hr class="hr-white">
+									<h5>{{ event.StartDateTime|date:"G:i" }}</h5>
+								{% endif %}
+							{% else %}
+								<h5>Upcoming Event</h5>
+								<hr class="my-4 hr-white">
+								<h6>Announcement Date</h6>
+								<p>{{ event.AnnouncementDateTime|date:"l j F Y" }}</p>
+							{% endif %}
+						</div>
+					{% endif %}
 				</div>
 			{% endfor %}
 		</div>

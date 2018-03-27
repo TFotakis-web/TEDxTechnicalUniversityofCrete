@@ -14,9 +14,10 @@
 						Events
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="{% url 'TEDx2018:event' 'Outcomes' %}">TEDxTechnicalUniversityofCrete 2018 Event</a>
-						<a class="dropdown-item" href="{% url 'TEDx2018:upcomingEvents' %}">Upcoming Events</a>
-						<a class="dropdown-item" href="{% url 'TEDx2018:previousEvents' %}">Previous Events</a>
+						<a class="dropdown-item" href="{% url 'TEDx2018:event' 'Outcomes' %}">Outcomes - 2018</a>
+						<a class="dropdown-item" href="{% url 'TEDx2018:event' 'Light_Leak' %}">Light Leak - 2017</a>
+						{#						<a class="dropdown-item" href="{% url 'TEDx2018:upcomingEvents' %}">Upcoming Events</a>#}
+						{#						<a class="dropdown-item" href="{% url 'TEDx2018:previousEvents' %}">Previous Events</a>#}
 					</div>
 				</li>
 				<li class="nav-item {% block talksTabActive %}{% endblock %}">
@@ -59,6 +60,14 @@
 						{#					<a class="dropdown-item" href="{% url 'TEDx2018:becomeAVolunteer' %}">Become a Volunteer</a>#}
 						{#					<a class="dropdown-item" href="{% url 'TEDx2018:faq' %}">Frequently Asked Questions</a>#}
 						<a class="dropdown-item" href="http://ted.com/" target="_blank">Official TED Talks</a>
+					</div>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Archive
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="{% url 'TEDx2017:home' %}">TEDxTechnicalUniversityofCrete: Light Leak</a>
 					</div>
 				</li>
 			</ul>

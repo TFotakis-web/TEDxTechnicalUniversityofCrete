@@ -5,7 +5,7 @@
 	<div class="navbar-placeholder"></div>
 	<div class="container-fluid">
 		{% for event in events %}
-			{% if event.Announced %}
+			{% if event.Announced and event.HasAnnouncedSpeakers %}
 				<div class="mb-5">
 					<h2>
 						<span class="font-weight-bold tedx-red">TEDx</span>

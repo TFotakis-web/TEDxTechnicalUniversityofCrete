@@ -6,8 +6,11 @@
 	{#		<div class="carousel-inner">#}
 	{#			<div class="carousel-item active">#}
 	{% if event.CarouselImage %}
-		<div class="full-screen-carousel-img{% if not event.Announced %} carousel-blur{% endif %}"
-		     style="background-image: url({{ event.CarouselImage.url }});">
+		{#		<div class="full-screen-carousel-img{% if not event.Announced %} carousel-blur{% endif %}"#}
+		{#		     style="background-image: url({{ event.CarouselImage.url }});">#}
+		{#		</div>#}
+		<div class="carousel-item active">
+			<img src="{{ event.CarouselImage.url }}" alt="Event carousel image" class="d-block w-100" style="max-height: 100vh">
 		</div>
 	{% else %}
 		<div class="full-screen-carousel-img carousel-blur"
@@ -57,12 +60,13 @@
 		{% include 'TEDx2018/Event/WhereWhenCards.html' %}
 
 		{# Tickets #}
-		{% include 'TEDx2018/Shared/dividerTitle.html' with title='Tickets' %}
 		{% include 'TEDx2018/Event/TicketCards.html' %}
 
 		{# Speakers #}
-		{% include 'TEDx2018/Shared/dividerTitle.html' with title='Speakers' %}
-		{% include 'TEDx2018/Shared/speakersList.html' %}
+		{% if event.HasAnnouncedSpeakers %}
+			{% include 'TEDx2018/Shared/dividerTitle.html' with title='Speakers' %}
+			{% include 'TEDx2018/Shared/speakersList.html' %}
+		{% endif %}
 
 		{# Schedule #}
 		{% include 'TEDx2018/Event/Schedule.html' %}

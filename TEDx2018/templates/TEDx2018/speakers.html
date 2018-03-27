@@ -5,73 +5,23 @@
 	<div class="navbar-placeholder"></div>
 	<div class="container-fluid">
 		{% for event in events %}
-			{#			Todo: Enable this check#}
-			{#			{% if event.Announced %}#}
-			<div class="mb-5">
-				<h2>
-					<span class="font-weight-bold tedx-red">TEDx</span>
-					<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
-					<span class="font-weight-light">{{ event.Name }}</span>
-				</h2>
-				<hr class="hr-red">
-				<div class="row justify-content-center">
-					{% for speaker in event.speaker_set.all %}
-						{% if speaker.Announced %}
-							<div class="card m-3">
-								<div class="card-header p-0">
-									<a href="{% url 'TEDx2018:speakerProfile' speaker.url %}"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt=""></a>
-								</div>
-								<div class="card-body">
-									<a href="{% url 'TEDx2018:speakerProfile' speaker.url %}">
-										<h5 class="card-title font-weight-bold">{{ speaker.FullName }}</h5>
-									</a>
-									<p class="card-text font-weight-light">{{ speaker.Title }}</p>
-								</div>
-								{% if speaker.HasLinks %}
-									<div class="card-footer">
-										<div class="row justify-content-center">
-											{% if speaker.Presentation %}
-												<a href="{{ speaker.Presentation.url }}" class="card-link mb-2" target="_blank"><i class="icon-file-powerpoint"></i></a>
-											{% endif %}
-											{% if speaker.Facebook %}
-												<a href="{{ speaker.Facebook }}" class="card-link mb-2" target="_blank"><i class="icon-facebook"></i></a>
-											{% endif %}
-											{% if speaker.GitHub %}
-												<a href="{{ speaker.GitHub }}" class="card-link mb-2" target="_blank"><i class="icon-github-circled"></i></a>
-											{% endif %}
-											{% if speaker.GooglePlus %}
-												<a href="{{ speaker.GooglePlus }}" class="card-link mb-2" target="_blank"><i class="icon-gplus"></i></a>
-											{% endif %}
-											{% if speaker.Instagram %}
-												<a href="{{ speaker.Instagram }}" class="card-link mb-2" target="_blank"><i class="icon-instagram"></i></a>
-											{% endif %}
-											{% if speaker.LinkedIn %}
-												<a href="{{ speaker.LinkedIn }}" class="card-link mb-2" target="_blank"><i class="icon-linkedin"></i></a>
-											{% endif %}
-											{% if speaker.Pinterest %}
-												<a href="{{ speaker.Pinterest }}" class="card-link mb-2" target="_blank"><i class="icon-pinterest"></i></a>
-											{% endif %}
-											{% if speaker.Reddit %}
-												<a href="{{ speaker.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ speaker.Reddit }}</a>
-											{% endif %}
-											{% if speaker.Twitter %}
-												<a href="{{ speaker.Twitter }}" class="card-link mb-2" target="_blank"><i class="icon-twitter"></i></a>
-											{% endif %}
-											{% if speaker.YouTube %}
-												<a href="{{ speaker.YouTube }}" class="card-link mb-2" target="_blank"><i class="icon-youtube-play"></i></a>
-											{% endif %}
-											{% if speaker.InternetLink %}
-												<a href="{{ speaker.InternetLink }}" class="card-link mb-2" target="_blank"><i class="icon-link-ext"></i></a>
-											{% endif %}
-										</div>
-									</div>
-								{% endif %}
-							</div>
-						{% endif %}
-					{% endfor %}
+			{% if event.Announced %}
+				<div class="mb-5">
+					<h2>
+						<span class="font-weight-bold tedx-red">TEDx</span>
+						<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
+						<span class="font-weight-light">{{ event.Name }}</span>
+					</h2>
+					<hr class="hr-red">
+					<div class="row justify-content-center">
+						{% for speaker in event.speaker_set.all %}
+							{% if speaker.Announced %}
+								{% include 'TEDx2018/Shared/personalCardTemplate.html' with person=speaker isSpeaker=True %}
+							{% endif %}
+						{% endfor %}
+					</div>
 				</div>
-			</div>
-			{#			{% endif %}#}
+			{% endif %}
 		{% endfor %}
 	</div>
 {% endblock %}

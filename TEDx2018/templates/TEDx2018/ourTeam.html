@@ -3,7 +3,17 @@
 {% block aboutTabActive %}active{% endblock %}
 {% block body %}
 	<div class="navbar-placeholder"></div>
-	<div class="container">
-		<h1>Our Team</h1>
+	<div class="container-fluid">
+		{% for event in events %}
+			<div class="mb-5">
+				<h2>
+					<span class="font-weight-bold tedx-red">TEDx</span>
+					<span class="font-weight-normal">TechnicalUniversityofCrete: </span>
+					<span class="font-weight-light">{{ event.event.Name }}</span>
+				</h2>
+				<hr class="hr-red">
+				{% include 'TEDx2018/Shared/teamsList.html' with teams=event.teams %}
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}

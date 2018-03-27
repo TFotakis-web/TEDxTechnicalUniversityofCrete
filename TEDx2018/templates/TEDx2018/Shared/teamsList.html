@@ -1,0 +1,24 @@
+<div class="container-fluid mb-5">
+	{% for team in teams %}
+		{% if forloop.counter0 %}
+			<div class="container mb-3">
+				{#						<div class="card w-100">#}
+				{#							<div class="card-header border-0">#}
+				<h2 class="card-title my-3 text-center font-weight-bold">{{ team.PhotoDescription }}</h2>
+				<div class="container">
+					<hr class="hr-red">
+				</div>
+				{#							</div>#}
+				{#							<div class="card-body">#}
+				{#								<img class="card-img-top" src="{{ team.Photo }}" alt="{{ team.PhotoDescription }} Photo">#}
+				{#							</div>#}
+				{#						</div>#}
+			</div>
+		{% endif %}
+		<div class="row justify-content-center mb-5">
+			{% for teamMemberAssignment in team.TeamMembersAssignment %}
+				{% include 'TEDx2018/Shared/personalCardTemplate.html' with person=teamMemberAssignment.TeamMember isSpeaker=False %}
+			{% endfor %}
+		</div>
+	{% endfor %}
+</div>

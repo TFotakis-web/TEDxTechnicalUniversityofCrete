@@ -1,0 +1,52 @@
+<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+	<div class="card my-3 w-100">
+		<a class="text-dark" href="{% if isSpeaker %}{% url 'TEDx2018:speakerProfile' person.url %}{% else %}{% url 'TEDx2018:teamMemberProfile' person.url %}{% endif %}">
+			<div class="card-header p-0">
+				<img class="card-img-top" src="{{ person.ProfileImage.url }}" alt="">
+			</div>
+			<div class="card-body">
+				<h6 class="card-title font-weight-bold">{{ person.FullName }}</h6>
+				<p class="card-text font-weight-light">{{ person.Position.Name }}</p>
+			</div>
+		</a>
+		{% if person.HasLinks %}
+			<div class="card-footer">
+				<div class="row justify-content-center">
+					{% if person.Presentation %}
+						<a href="{{ person.Presentation.url }}" class="card-link mb-2" target="_blank"><i class="icon-file-powerpoint"></i></a>
+					{% endif %}
+					{% if person.Facebook %}
+						<a href="{{ person.Facebook }}" class="card-link mb-2" target="_blank"><i class="icon-facebook"></i></a>
+					{% endif %}
+					{% if person.GitHub %}
+						<a href="{{ person.GitHub }}" class="card-link mb-2" target="_blank"><i class="icon-github-circled"></i></a>
+					{% endif %}
+					{% if person.GooglePlus %}
+						<a href="{{ person.GooglePlus }}" class="card-link mb-2" target="_blank"><i class="icon-gplus"></i></a>
+					{% endif %}
+					{% if person.Instagram %}
+						<a href="{{ person.Instagram }}" class="card-link mb-2" target="_blank"><i class="icon-instagram"></i></a>
+					{% endif %}
+					{% if person.LinkedIn %}
+						<a href="{{ person.LinkedIn }}" class="card-link mb-2" target="_blank"><i class="icon-linkedin"></i></a>
+					{% endif %}
+					{% if person.Pinterest %}
+						<a href="{{ person.Pinterest }}" class="card-link mb-2" target="_blank"><i class="icon-pinterest"></i></a>
+					{% endif %}
+					{% if person.Reddit %}
+						<a href="{{ person.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ person.Reddit }}</a>
+					{% endif %}
+					{% if person.Twitter %}
+						<a href="{{ person.Twitter }}" class="card-link mb-2" target="_blank"><i class="icon-twitter"></i></a>
+					{% endif %}
+					{% if person.YouTube %}
+						<a href="{{ person.YouTube }}" class="card-link mb-2" target="_blank"><i class="icon-youtube-play"></i></a>
+					{% endif %}
+					{% if person.InternetLink %}
+						<a href="{{ person.InternetLink }}" class="card-link mb-2" target="_blank"><i class="icon-link-ext"></i></a>
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

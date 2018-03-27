@@ -14,20 +14,22 @@
 					</h2>
 					<hr class="hr-red">
 					<div class="row justify-content-center">
-
 						{% for speaker in event.speaker_set.all %}
 							{% if speaker.TalkYouTubeLink %}
-								<div class="card m-3">
-									<div class="card-header p-0">
-										<a href="https://www.youtube.com/watch?v={{ speaker.TalkYouTubeLink }}" target="_blank"><img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt="Speaker profile image"></a>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title font-weight-bold">{{ speaker.TalkTitle }}</h5>
-									</div>
-									<div class="card-footer">
-										<a href="{% url 'TEDx2018:speakers' %}{{ speaker.Name }}_{{ speaker.Surname }}/">
-											<h5 class="card-title font-weight-light">{{ speaker.FullName }}</h5>
-										</a>
+								<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+									<div class="card w-100 my-3">
+										<div class="card-header p-0">
+											<a href="https://www.youtube.com/watch?v={{ speaker.TalkYouTubeLink }}" target="_blank">
+												<img class="card-img-top" src="{{ speaker.ProfileImage.url }}" alt="Speaker profile image"></a>
+										</div>
+										<div class="card-body">
+											<h6 class="card-title font-weight-bold">{{ speaker.TalkTitle }}</h6>
+										</div>
+										<div class="card-footer">
+											<a href="{% url 'TEDx2018:speakers' %}{{ speaker.Name }}_{{ speaker.Surname }}/">
+												<h6 class="card-title font-weight-light">{{ speaker.FullName }}</h6>
+											</a>
+										</div>
 									</div>
 								</div>
 							{% endif %}

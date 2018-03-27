@@ -1,0 +1,96 @@
+<div class="navbar-placeholder"></div>
+{% include 'TEDx2018/Shared/dividerTitle.html' with title=person.FullName %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="{% if person.HasLinks %}col-lg-8{% else %}col{% endif %}">
+			{% if person.TalkSummary or person.TalkYouTubeLink %}
+				<div class="card w-100 mb-3">
+					{% if person.TalkTitle %}
+						<div class="card-header">
+							<h3 class="text-center m-3">{{ person.TalkTitle }}</h3>
+						</div>
+					{% endif %}
+
+					<div class="card-body">
+						{% if person.TalkSummary %}
+							<hr class="hr-red">
+							<p class="text-justify mb-3">{{ person.TalkSummary }}</p>
+						{% endif %}
+						{% if person.TalkYouTubeLink %}
+							<div class="embed-responsive embed-responsive-16by9 ">
+								<iframe class="embed-responsive-item card-img-border" src="https://www.youtube.com/embed/{{ person.TalkYouTubeLink }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+			<div class="card w-100 mb-3">
+				{% if person.Bio %}
+					<div class="card-header">
+						<h3 class="text-center">Bio</h3>
+						<hr class="hr-red">
+					</div>
+				{% endif %}
+				<div class="card-body">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-4">
+							<div class="text-center">
+								<img class="img-fluid mb-3 rounded" src="{{ person.ProfileImage.url }}" alt="{{ person.FullName }} profile image">
+							</div>
+						</div>
+						<div class="col-lg-8">
+							{% if person.Bio %}
+								<p class="text-justify">{{ person.Bio }}</p>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% if person.HasLinks %}
+			<div class="col-lg-4 mb-5">
+				<div class="card w-100">
+					<div class="card-header">
+						<h3 class="text-center">Links</h3>
+						<hr class="hr-red">
+					</div>
+					<div class="card-body">
+						{% if person.Presentation %}
+							<a href="{{ person.Presentation.url }}" class="d-flex mb-2" target="_blank"><i class="icon-file-powerpoint"></i> {{ person.Presentation.url }}</a>
+						{% endif %}
+						{% if person.Facebook %}
+							<a href="{{ person.Facebook }}" class="d-flex mb-2" target="_blank"><i class="icon-facebook"></i> {{ person.Facebook }}</a>
+						{% endif %}
+						{% if person.GitHub %}
+							<a href="{{ person.GitHub }}" class="d-flex mb-2" target="_blank"><i class="icon-github-circled"></i> {{ person.GitHub }}</a>
+						{% endif %}
+						{% if person.GooglePlus %}
+							<a href="{{ person.GooglePlus }}" class="d-flex mb-2" target="_blank"><i class="icon-gplus"></i> {{ person.GooglePlus }}</a>
+						{% endif %}
+						{% if person.Instagram %}
+							<a href="{{ person.Instagram }}" class="d-flex mb-2" target="_blank"><i class="icon-instagram"></i> {{ person.Instagram }}</a>
+						{% endif %}
+						{% if person.LinkedIn %}
+							<a href="{{ person.LinkedIn }}" class="d-flex mb-2" target="_blank"><i class="icon-linkedin"></i> {{ person.LinkedIn }}</a>
+						{% endif %}
+						{% if person.Pinterest %}
+							<a href="{{ person.Pinterest }}" class="d-flex mb-2" target="_blank"><i class="icon-pinterest"></i> {{ person.Pinterest }}</a>
+						{% endif %}
+						{% if person.Reddit %}
+							<a href="{{ person.Reddit }}" class="d-flex mb-2" target="_blank"><i class="icon-reddit"></i> {{ person.Reddit }}</a>
+						{% endif %}
+						{% if person.Twitter %}
+							<a href="{{ person.Twitter }}" class="d-flex mb-2" target="_blank"><i class="icon-twitter"></i> {{ person.Twitter }}</a>
+						{% endif %}
+						{% if person.YouTube %}
+							<a href="{{ person.YouTube }}" class="d-flex mb-2" target="_blank"><i class="icon-youtube-play"></i> {{ person.YouTube }}</a>
+						{% endif %}
+						{% if person.InternetLink %}
+							<a href="{{ person.InternetLink }}" class="d-flex mb-2" target="_blank"><i class="icon-link-ext"></i> {{ person.InternetLink }}</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

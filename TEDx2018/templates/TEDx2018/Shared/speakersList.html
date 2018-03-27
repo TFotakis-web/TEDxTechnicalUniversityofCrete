@@ -1,0 +1,9 @@
+<div class="container-fluid mb-5">
+	<div class="row justify-content-center">
+		{% for speaker in event.speaker_set.all %}
+			{% if speaker.Announced %}
+				{% include 'TEDx2018/Shared/personalCardTemplate.html' with person=speaker isSpeaker=True %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</div>

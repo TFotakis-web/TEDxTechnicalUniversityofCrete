@@ -1,0 +1,21 @@
+<div class="container mb-5">
+	<div class="row justify-content-center">
+		{% for ticket in event.ticket_set.all %}
+			<div class="card {% if ticket.Available %}border-success{% else %}border-danger{% endif %}">
+				{% if ticket.Available %}<a class="text-dark" href="{{ event.Eventbrite }}" target="_blank">{% endif %}
+				<div class="card-header {% if ticket.Available %}border-success{% else %}border-danger{% endif %}">
+					<h3 class="card-text text-center">{{ ticket.Name }}</h3>
+				</div>
+				<div class="card-body text-center">
+					<h1 class="my-5">{{ ticket.Price }}€</h1>
+					{% if ticket.Available %}
+						<div class="btn btn-success">Available</div>
+					{% else %}
+						<div class="btn btn-danger">Sold Out</div>
+					{% endif %}
+				</div>
+				{% if ticket.Available %}</a>{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container mb-5">
+	<div class="row justify-content-center">
+		<div class="card">
+			<a class="text-dark" href="{{ event.GoogleCalendarLink }}" target="_blank">
+				<div class="card-header">
+					<h5 class="card-text text-center">When <span class="icon-calendar-empty"></span></h5>
+				</div>
+				<div class="card-body text-center">
+					{# Formating info on https://docs.djangoproject.com/en/dev/ref/templates/builtins/#date #}
+					<h6>{{ event.StartDateTime|date:"l" }}</h6>
+					<h5>{{ event.StartDateTime|date:"j F Y" }}</h5>
+					<hr class="hr-red">
+					<h6>{{ event.StartDateTime|date:"G:i" }}</h6>
+				</div>
+			</a>
+		</div>
+		<a href="{{ event.GoogleMapsLink }}" target="_blank">
+			<div class="card">
+				<a class="text-dark" href="{{ event.GoogleMapsLink }}" target="_blank">
+					<div class="card-header">
+						<h5 class="card-text text-center">Where <span class="icon-location"></span></h5>
+					</div>
+					<div class="card-body text-center align-middle">
+						<h6 class="mt-3">{{ event.Address1 }}</h6>
+						<hr class="hr-red">
+						<p>{{ event.Address2 }}</p>
+					</div>
+				</a>
+			</div>
+		</a>
+	</div>
+</div>

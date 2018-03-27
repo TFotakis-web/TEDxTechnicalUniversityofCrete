@@ -1,0 +1,76 @@
+{% load static %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white border-bottom">
+	<div class="container">
+		<a class="navbar-brand" href="{% url 'TEDx2018:home' %}">
+			<img src="{% static 'TEDx2018/images/TEDxLogoBlack.svg' %}" alt="TEDxTechnicalUniversityofCrete Logo" height="30">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item dropdown {% block eventsTabActive %}{% endblock %}">
+					<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:event' 'Outcomes' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Events
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="{% url 'TEDx2018:event' 'Outcomes' %}">TEDxTechnicalUniversityofCrete 2018 Event</a>
+						<a class="dropdown-item" href="{% url 'TEDx2018:upcomingEvents' %}">Upcoming Events</a>
+						<a class="dropdown-item" href="{% url 'TEDx2018:previousEvents' %}">Previous Events</a>
+					</div>
+				</li>
+				<li class="nav-item {% block talksTabActive %}{% endblock %}">
+					<a class="nav-link" href="{% url 'TEDx2018:talks' %}">Talks</a>
+				</li>
+				<li class="nav-item {% block speakersTabActive %}{% endblock %}">
+					<a class="nav-link" href="{% url 'TEDx2018:speakers' %}">Speakers</a>
+				</li>
+				{#			<li class="nav-item dropdown {% block partnersTabActive %}{% endblock %}">#}
+				{#				<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:partners' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+				{#					Partners#}
+				{#				</a>#}
+				{#				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:partners' %}">Partners</a>#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:becomeAPartner' %}">Become a partner of TEDxTechnicalUniversityofCrete</a>#}
+				{#				</div>#}
+				{#			</li>#}
+				<li class="nav-item {% block partnersTabActive %}{% endblock %}">
+					<a class="nav-link" href="{% url 'TEDx2018:partners' %}">Partners</a>
+				</li>
+				{#			<li class="nav-item dropdown {% block communityTabActive %}{% endblock %}">#}
+				{#				<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:community' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+				{#					Community#}
+				{#				</a>#}
+				{#				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:community' %}">Our Community</a>#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:joinAsAMember' %}">Join as a member</a>#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:donors' %}">Donors</a>#}
+				{#					<a class="dropdown-item" href="{% url 'TEDx2018:becomeADonor' %}">Become a Donor of TEDxTechnicalUniversityofCrete</a>#}
+				{#				</div>#}
+				{#			</li>#}
+				<li class="nav-item dropdown {% block aboutTabActive %}{% endblock %}">
+					<a class="nav-link dropdown-toggle" href="{% url 'TEDx2018:about' %}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						About
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="{% url 'TEDx2018:about' %}">About TEDxTechnicalUniversityofCrete</a>
+						<a class="dropdown-item" href="{% url 'TEDx2018:ourTeam' %}">Our Team</a>
+						{#					<a class="dropdown-item" href="{% url 'TEDx2018:contactUs' %}">Contact Us</a>#}
+						{#					<a class="dropdown-item" href="{% url 'TEDx2018:becomeAVolunteer' %}">Become a Volunteer</a>#}
+						{#					<a class="dropdown-item" href="{% url 'TEDx2018:faq' %}">Frequently Asked Questions</a>#}
+						<a class="dropdown-item" href="http://ted.com/" target="_blank">Official TED Talks</a>
+					</div>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item row justify-content-center border-top-lg">
+					<a class="nav-link navbar-social d-inline-block" href="https://www.facebook.com/tedxtuoc" target="_blank"><i class="icon-facebook"></i></a>
+					<a class="nav-link navbar-social d-inline-block" href="https://www.twitter.com/tedxtuoc" target="_blank"><i class="icon-twitter"></i></a>
+					<a class="nav-link navbar-social d-inline-block" href="https://www.linkedin.com/company/tedxtechnicaluniversityofcrete/" target="_blank"><i class="icon-linkedin"></i></a>
+					<a class="nav-link navbar-social d-inline-block" href="https://www.instagram.com/tedxtuoc/" target="_blank"><i class="icon-instagram"></i></a>
+					<a class="nav-link navbar-social d-inline-block" href="mailto:tedxtechnicaluniversityofcrete@gmail.com" target="_blank"><i class="icon-mail"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

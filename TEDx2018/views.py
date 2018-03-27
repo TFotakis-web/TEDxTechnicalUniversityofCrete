@@ -101,7 +101,12 @@ def teamMemberProfile(request, fullName):
 
 
 def ourTeam(request):
-	return render(request=request, template_name='TEDx2018/ourTeam.html')
+	events = Event.objects.order_by('-StartDateTime')
+	eventsTmp = []
+	for event in events:
+		teams = getTeamAndTeamMembers(event)
+		eventsTmp.append({'event': event, "teams": teams})
+	return render(request=request, template_name='TEDx2018/ourTeam.html', context={'events': eventsTmp})
 
 
 def contactUs(request):

@@ -17,7 +17,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.urls import path, include
+from django.urls import path, include, re_path
+
+from TEDx2018 import views
 
 urlpatterns = [
 	path('admin/', admin.site.urls),
@@ -31,3 +33,6 @@ if settings.DEBUG:
 	urlpatterns += staticfiles_urlpatterns()
 handler404 = 'TEDx2018.views.custom_404'
 handler500 = 'TEDx2018.views.custom_500'
+urlpatterns += [
+	re_path(r'(?P<path>.*)', views.custom_404, name='custom404')
+]

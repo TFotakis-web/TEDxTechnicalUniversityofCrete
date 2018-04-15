@@ -126,7 +126,11 @@ def faq(request):
 	return render(request=request, template_name='TEDx2018/faq.html')
 
 
-def custom_404(request):
+def custom_404(request, path):
+	return render(request=request, template_name='TEDx2018/404.html')
+
+
+def handler404(request):
 	return render(request=request, template_name='TEDx2018/404.html')
 
 

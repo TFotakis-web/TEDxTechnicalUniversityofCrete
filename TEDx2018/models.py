@@ -80,6 +80,7 @@ class TeamMember(models.Model):
 	School = models.CharField(max_length=100, blank=True)
 	EducationalLevel = models.CharField(max_length=100, blank=True)
 	ProfileImage = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/TeamMemberProfilePictures/')
+	ProfileImage2 = models.ImageField(blank=True, upload_to='TEDx2018/TeamMemberProfilePictures/')
 	Bio = models.TextField(blank=True)
 	Facebook = models.CharField(max_length=100, blank=True)
 	GitHub = models.CharField(max_length=100, blank=True)

@@ -2,7 +2,10 @@
 	<div class="card my-3 w-100">
 		<a class="text-dark" href="{% if isSpeaker %}{% url 'TEDx2018:speakerProfile' person.url %}{% else %}{% url 'TEDx2018:teamMemberProfile' person.url %}{% endif %}">
 			<div class="card-header p-0">
-				{% if person.ProfileImage %}
+				{% if person.ProfileImage2 %}
+					<img class="card-img-top" src="{{ person.ProfileImage2.url }}" alt="">
+				{% elif person.ProfileImage %}
+					{#				{% if person.ProfileImage %}#}
 					<img class="card-img-top" src="{{ person.ProfileImage.url }}" alt="">
 				{% else %}
 					<img class="card-img-top" src="/media/TEDx2018/Shared/XWhite.svg" alt="">

@@ -70,6 +70,12 @@
 			{% include 'TEDx2018/Shared/speakersList.html' %}
 		{% endif %}
 
+		{# Workshops #}
+		{% if event.HasAnnouncedWorkshops %}
+			{% include 'TEDx2018/Shared/dividerTitle.html' with title='Workshops' %}
+			{% include 'TEDx2018/Shared/workshopList.html' %}
+		{% endif %}
+
 		{# Schedule #}
 		{% include 'TEDx2018/Event/Schedule.html' %}
 

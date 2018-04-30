@@ -18,6 +18,7 @@ class Event(models.Model):
 	Description = models.TextField(blank=True)
 	TicketsAvailable = models.BooleanField(default=False)
 	HasAnnouncedSpeakers = models.BooleanField(default=False)
+	HasAnnouncedWorkshops = models.BooleanField(default=False)
 	ScheduleAnnounced = models.BooleanField(default=False)
 	Eventbrite = models.CharField(max_length=100, blank=True, default='#')
 	Facebook = models.CharField(max_length=100, blank=True)
@@ -177,6 +178,52 @@ class Speaker(models.Model):
 		return self.Name + '_' + self.Surname
 
 	def __str__(self): return self.FullName + ' - ' + self.Event.Name
+
+
+class Workshop(models.Model):
+	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
+	# Name = models.CharField(max_length=100)
+	# Surname = models.CharField(max_length=100, blank=True)
+	# email = models.CharField(max_length=100, blank=True)
+	# Telephone = models.IntegerField(blank=True, null=True)
+	ProfileImage = models.ImageField(default='TEDx2018/Shared/XWhite.svg', blank=True, upload_to='TEDx2018/SpeakerProfilePictures/')
+	Title = models.CharField(max_length=100, blank=True)
+	Description = models.TextField(blank=True)
+	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
+	# Session = models.ForeignKey(Session, default=1, null=True, on_delete=models.SET_NULL)
+	# TalkTime = models.TimeField(default=None, blank=True, null=True)
+	# HasSpoken = models.BooleanField(default=False, blank=True)
+	Facebook = models.CharField(max_length=100, blank=True)
+	GitHub = models.CharField(max_length=100, blank=True)
+	GooglePlus = models.CharField(max_length=100, blank=True)
+	Instagram = models.CharField(max_length=100, blank=True)
+	LinkedIn = models.CharField(max_length=100, blank=True)
+	Pinterest = models.CharField(max_length=100, blank=True)
+	Reddit = models.CharField(max_length=100, blank=True)
+	Twitter = models.CharField(max_length=100, blank=True)
+	YouTube = models.CharField(max_length=100, blank=True)
+	InternetLink = models.CharField(max_length=100, blank=True)
+
+	# TalkTitle = models.CharField(max_length=100, blank=True)
+	# TalkSummary = models.TextField(blank=True)
+	# TalkYouTubeLink = models.CharField(max_length=100, blank=True)
+
+	# @property
+	# def FullName(self): return self.Name + ' ' + self.Surname
+
+	@property
+	def Announced(self):
+		return True if self.AnnouncementDateTime is None else self.AnnouncementDateTime.utctimetuple() <= datetime.now().astimezone().utctimetuple()
+
+	@property
+	def HasLinks(self):
+		return bool(self.Facebook) | bool(self.GitHub) | bool(self.GooglePlus) | bool(self.Instagram) | bool(self.LinkedIn) | bool(self.Pinterest) | bool(self.Twitter) | bool(self.YouTube) | bool(self.InternetLink)
+
+	# @property
+	# def url(self):
+	# 	return self.Name + '_' + self.Surname
+
+	def __str__(self): return self.Title + ' - ' + self.Event.Name
 
 
 class PartnerLevel(models.Model):

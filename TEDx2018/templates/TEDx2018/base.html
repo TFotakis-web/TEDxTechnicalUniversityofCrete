@@ -7,10 +7,22 @@
 	{% include 'TEDx2018/Base/HeadLinks.html' %}
 </head>
 <body>
+<div class="loader-bg">
+	<div class="loader">
+		<div></div>
+		<div></div>
+	</div>
+</div>
+
 {% include 'TEDx2018/Base/NavigationBar.html' %}
 <div style="min-height: 100vh;">
 	{% block body %}{% endblock %}
 </div>
 {% include 'TEDx2018/Base/Footer.html' %}
 </body>
+<script type="text/javascript">
+	$(window).on('load', function () {
+		$(".loader-bg").fadeOut('slow');
+	});
+</script>
 </html>

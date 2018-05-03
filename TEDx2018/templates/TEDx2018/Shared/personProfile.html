@@ -1,6 +1,6 @@
 <div class="navbar-placeholder"></div>
 {% include 'TEDx2018/Shared/dividerTitle.html' with title=person.FullName %}
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 		<div class="{% if person.HasLinks %}col-lg-8{% else %}col{% endif %}">
 			{% if person.TalkSummary or person.TalkYouTubeLink %}

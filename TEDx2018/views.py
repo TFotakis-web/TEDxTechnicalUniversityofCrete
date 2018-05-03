@@ -1,5 +1,6 @@
 from random import shuffle
 
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from TEDx2018.models import *
@@ -140,3 +141,11 @@ def custom_500(request):
 
 def googleConfirmation(request):
 	return render(request=request, template_name='TEDx2018/google21f2e05779fa0f76.html')
+
+
+def test(request):
+	response = requests.get('https://payment.tuc.gr/admin.php?orderid=&txid=&datefrom=&dateto=&showfrom=1', cookies=dict(PHPSESSID='aj6hfh5dhsci793cdj8pkldaj5'))
+	plainText = response.text
+	soup = BeautifulSoup(plainText)
+	trs = soup.find_all('tr', {'class': 'captured'})
+	return HttpResponse(response)

@@ -39,5 +39,6 @@ urlpatterns = [
 	path('about/faq/', views.faq, name='faq'),
 	path('about/<str:fullName>/', views.teamMemberProfile, name='teamMemberProfile'),
 	path('google21f2e05779fa0f76.html', views.googleConfirmation, name='googleConfirmation'),
+	# path('test/', views.test, name='test'),
 	# path(r'^404/$', views.custom_404, name='custom404'),
 ]

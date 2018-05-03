@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import requests
+from bs4 import BeautifulSoup
 from django.db import models
 
 
@@ -17,6 +19,7 @@ class Event(models.Model):
 	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	Description = models.TextField(blank=True)
 	TicketsAvailable = models.BooleanField(default=False)
+	TicketsNumber = models.IntegerField(blank=True, default=0)
 	HasAnnouncedSpeakers = models.BooleanField(default=False)
 	HasAnnouncedWorkshops = models.BooleanField(default=False)
 	ScheduleAnnounced = models.BooleanField(default=False)
@@ -59,6 +62,14 @@ class Ticket(models.Model):
 	Name = models.CharField(max_length=100)
 	Price = models.FloatField(default=0)
 	Available = models.BooleanField(default=True)
+
+	@property
+	def isSoldOut(self):
+		response = requests.get('https://payment.tuc.gr/admin.php?orderid=&txid=&datefrom=&dateto=&showfrom=1', cookies=dict(PHPSESSID='aj6hfh5dhsci793cdj8pkldaj5'))
+		plainText = response.text
+		soup = BeautifulSoup(plainText)
+		trs = soup.find_all('tr', {'class': 'captured'})
+		return len(trs) >= self.Event.TicketsNumber
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 

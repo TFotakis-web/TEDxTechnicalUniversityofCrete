@@ -57,6 +57,29 @@ class Event(models.Model):
 	def __str__(self): return self.Name
 
 
+globalCookie = None
+globalCookieTime = datetime.now()
+
+
+def getTicketsNumber():
+	global globalCookie, globalCookieTime
+	if globalCookie is None or (datetime.now() - globalCookieTime).total_seconds() > 36000:
+		response = requests.post(
+			url='https://payment.tuc.gr/admin.php',
+			data={'username': 'TEDx2018', 'password': 'TED!@()2018', 'dologin': 'yes'}
+		)
+		globalCookie = response.cookies
+		globalCookieTime = datetime.now()
+	soup = BeautifulSoup(
+		requests.get(
+			url='https://payment.tuc.gr/admin.php?orderid=&txid=&datefrom=&dateto=&showfrom=1',
+			cookies=globalCookie
+		).text,
+		"html.parser"
+	)
+	return soup.find_all('tr', {'class': 'captured'}).__len__()
+
+
 class Ticket(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
@@ -64,12 +87,7 @@ class Ticket(models.Model):
 	Available = models.BooleanField(default=True)
 
 	@property
-	def isSoldOut(self):
-		response = requests.get('https://payment.tuc.gr/admin.php?orderid=&txid=&datefrom=&dateto=&showfrom=1', cookies=dict(PHPSESSID='aj6hfh5dhsci793cdj8pkldaj5'))
-		plainText = response.text
-		soup = BeautifulSoup(plainText)
-		trs = soup.find_all('tr', {'class': 'captured'})
-		return len(trs) >= self.Event.TicketsNumber
+	def isSoldOut(self): return getTicketsNumber() >= self.Event.TicketsNumber
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 

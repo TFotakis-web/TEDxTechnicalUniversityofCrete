@@ -34,5 +34,5 @@ if settings.DEBUG:
 handler404 = 'TEDx2018.views.custom_404'
 handler500 = 'TEDx2018.views.custom_500'
 urlpatterns += [
-	re_path(r'(?P<path>.*)', views.custom_404, name='custom404')
+	re_path(r'(?P<path>.*)', views.custom_404View, name='custom404')
 ]

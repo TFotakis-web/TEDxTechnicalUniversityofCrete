@@ -39,6 +39,6 @@ urlpatterns = [
 	path('about/faq/', views.faqView, name='faq'),
 	path('about/<str:fullName>/', views.teamMemberProfileView, name='teamMemberProfile'),
 	path('google21f2e05779fa0f76.html', views.googleConfirmation, name='googleConfirmation'),
-	path('ticketsCounter/', views.ticketsCounterView, name='ticketsCounter'),
+#	path('ticketsCounter/', views.ticketsCounterView, name='ticketsCounter'),
 	# path(r'^404/$', views.custom_404, name='custom404'),
 ]

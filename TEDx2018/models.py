@@ -63,7 +63,7 @@ globalCookieTime = datetime.now()
 
 def getTicketsNumber():
 	global globalCookie, globalCookieTime
-	if globalCookie is None or (datetime.now() - globalCookieTime).total_seconds() > 36000:
+	if globalCookie is None or (datetime.now() - globalCookieTime).total_seconds() > 3600:
 		response = requests.post(
 			url='https://payment.tuc.gr/admin.php',
 			data={'username': 'TEDx2018', 'password': 'TED!@()2018', 'dologin': 'yes'}
@@ -87,7 +87,8 @@ class Ticket(models.Model):
 	Available = models.BooleanField(default=True)
 
 	@property
-	def isSoldOut(self): return getTicketsNumber() >= self.Event.TicketsNumber
+	def isSoldOut(self): return False
+		#  return getTicketsNumber() >= self.Event.TicketsNumber
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 

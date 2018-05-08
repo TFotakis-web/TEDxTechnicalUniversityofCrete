@@ -50,7 +50,17 @@ def eventView(request, eventName):
 	eventName = eventName.replace('_', ' ')
 	event = Event.objects.filter(Name=eventName).first()
 	teams = getTeamAndTeamMembers(event)
-	return render(request=request, template_name='TEDx2018/event.html', context={'event': event, 'teams': teams})
+	partnersList = []
+	hasPartners = False
+	PartnerLevels = None
+	for partnerLevel in event.partnerlevel_set.all().order_by('Level'):
+		partners = list(event.partner_set.filter(PartnerLevel=partnerLevel))
+		if len(partners):
+			partnersList.append({'Name': partnerLevel.Name, 'partners': partners})
+			hasPartners = True
+	if hasPartners:
+		PartnerLevels = partnersList
+	return render(request=request, template_name='TEDx2018/event.html', context={'event': event, 'teams': teams, 'PartnerLevels': PartnerLevels})
 
 
 def talksView(request):

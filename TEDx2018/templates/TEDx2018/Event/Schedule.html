@@ -8,13 +8,13 @@
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table text-center m-0">
-						{% for session in event.session_set.all %}
+						{% for session in event.session_set.all|dictsort:"Time" %}
 							<thead class="thead-red">
 							<tr>
-								<th scope="col">Time</th>
+								<th scope="col">{{ session.Time|date:"G:i" }}</th>
 								<th scope="col">{{ session.Name }}</th>
 								{% if event.IsOnGoing %}
-									<th scope="col">Has spoken</th>
+									<th scope="col"></th>
 								{% endif %}
 							</tr>
 							</thead>
@@ -22,7 +22,7 @@
 							{% for speaker in session.speaker_set.all|dictsort:"TalkTime" %}
 								<tr>
 									<th>{{ speaker.TalkTime|date:"G:i" }}</th>
-									<td align="center">{{ speaker.FullName }}</td>
+									<td align="center"><a class="text-dark" href="{% url 'TEDx2018:speakerProfile' speaker.url %}">{{ speaker.FullName }}</a></td>
 									{% if event.IsOnGoing %}
 										<td class="text-success">
 											{% if speaker.HasSpoken %}

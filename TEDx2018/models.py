@@ -158,6 +158,7 @@ class TeamMemberAssignment(models.Model):
 class Session(models.Model):
 	Event = models.ForeignKey(Event, default=1, on_delete=models.CASCADE)
 	Name = models.CharField(max_length=100)
+	Time = models.TimeField(default="00:00")
 
 	def __str__(self): return self.Name + ' - ' + self.Event.Name
 
@@ -222,6 +223,7 @@ class Workshop(models.Model):
 	AnnouncementDateTime = models.DateTimeField(default=None, blank=True, null=True)
 	Session = models.ForeignKey(Session, default=1, null=True, on_delete=models.SET_NULL)
 	TalkTime = models.TimeField(default=None, blank=True, null=True)
+	isMain = models.BooleanField(default=True, blank=True)
 	HasSpoken = models.BooleanField(default=False, blank=True)
 	Facebook = models.CharField(max_length=100, blank=True)
 	GitHub = models.CharField(max_length=100, blank=True)

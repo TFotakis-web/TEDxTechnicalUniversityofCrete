@@ -3,7 +3,7 @@
 {% block speakersTabActive %}active{% endblock %}
 {% block body %}
 	<div class="navbar-placeholder mb-3"></div>
-	<div class="container-fluid">
+	<div class="container">
 		{% for event in events %}
 			{% if event.Announced and event.HasAnnouncedSpeakers %}
 				<div class="mb-5">

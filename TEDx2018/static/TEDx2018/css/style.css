@@ -26,6 +26,13 @@ body {
 	background-size: cover;
 }
 
+.full-screen-carousel-img {
+	height: 70vh;
+	background-repeat: inherit;
+	background-position: center center;
+	background-size: cover;
+}
+
 .carousel-blur {
 	-webkit-filter: blur(50px);
 	-moz-filter: blur(50px);
@@ -148,7 +155,7 @@ footer {
 .table .thead-red th {
 	color: #fff;
 	background-color: #e62b1e;
-	border-color: #e62b1e;
+	border-color: white;
 }
 
 .loader {

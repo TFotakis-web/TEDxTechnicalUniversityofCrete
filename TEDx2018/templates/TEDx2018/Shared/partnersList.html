@@ -1,23 +1,25 @@
 {% for partnerLevel in PartnerLevels %}
-	<div class="container mt-5">
-		<h3 class="text-center">{{ partnerLevel.Name }}</h3>
-		<hr class="hr-black w-100">
-	</div>
-	<div class="row justify-content-center">
-		{% for partner in partnerLevel.partners %}
-			{% if partner.Announced %}
-				<div class="card m-3">
-					<div class="card-header p-0">
-						<a href="{% if partner.InternetLink %}{{ partner.InternetLink }}{% else %}#{% endif %}"
-						   target="{% if partner.InternetLink %}_blank{% endif %}">
-							<img class="card-img-top" src="{{ partner.Logo.url }}" alt="Partner Logo">
-						</a>
+	<div class="container">
+		<div class="container mt-5">
+			<h3 class="text-center">{{ partnerLevel.Name }}</h3>
+			<hr class="hr-black w-100">
+		</div>
+		<div class="row justify-content-center">
+			{% for partner in partnerLevel.partners %}
+				{% if partner.Announced %}
+					<div class="card m-3">
+						<div class="card-header p-0">
+							<a href="{% if partner.InternetLink %}{{ partner.InternetLink }}{% else %}#{% endif %}"
+							   target="{% if partner.InternetLink %}_blank{% endif %}">
+								<img class="card-img-top" src="{{ partner.Logo.url }}" alt="Partner Logo">
+							</a>
+						</div>
+						<div class="card-body">
+							<h6 class="card-title font-weight-bold">{{ partner.CompanyName }}</h6>
+						</div>
 					</div>
-					<div class="card-body">
-						<h6 class="card-title font-weight-bold">{{ partner.CompanyName }}</h6>
-					</div>
-				</div>
-			{% endif %}
-		{% endfor %}
+				{% endif %}
+			{% endfor %}
+		</div>
 	</div>
 {% endfor %}

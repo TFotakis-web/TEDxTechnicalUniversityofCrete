@@ -1,6 +1,7 @@
-<div class="container-fluid mb-5">
+<div class="container mb-5">
 	<div class="row justify-content-center">
-		{% for speaker in event.speaker_set.all|dictsort:"Name" %}
+		{% for speaker in event.speaker_set.all %}
+			{#		{% for speaker in event.speaker_set.all|dictsort:"Name" %}#}
 			{% if speaker.Announced %}
 				{% include 'TEDx2018/Shared/personalCardTemplate.html' with person=speaker isSpeaker=True %}
 			{% endif %}
